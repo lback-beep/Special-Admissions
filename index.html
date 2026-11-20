@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-TW">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="artifact-type" content="narrative">
   <meta name="design-style" content="moderne">
-  <title>銘傳大學公共事務與行政管理學系｜特殊選才互動諮詢與問答</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lexend:wght@100..900&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+  <title>銘傳公事系 特殊選才互動諮詢指南｜劉祥得規劃</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lexend:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
   <style>
     :root {
       color-scheme: light;
 
-      /* 1. Moderne style palette & tokens */
+      /* Page and surfaces (Moderne) */
       --background: #f4ecdc;
       --surface-container-low: #fbf6ea;
       --surface-container: #e9dcc0;
       --surface-container-high: #e0cfaa;
 
+      /* Ink */
       --on-surface: #2b2a26;
       --on-surface-variant: #55524a;
 
+      /* Rules */
       --outline: #2b2a26;
       --outline-variant: #d9cdb3;
 
+      /* Accents */
       --primary: #1f6f6b;
       --on-primary: #ffffff;
       --primary-container: #bcd9d2;
@@ -33,49 +36,48 @@
       --error: #9a1f3a;
       --on-error: #ffffff;
 
+      /* Semantic */
+      --positive: #1f6f6b;
+      --warning: #a87710;
+      --focus: #1f6f6b;
+
+      /* Data series */
       --data-1: #1f6f6b;
       --data-2: #d9572b;
       --data-3: #a87710;
       --data-4: #6b4a2e;
       --data-context: #a39880;
 
-      /* Fonts (Traditional Chinese paired with Moderne display & body) */
+      /* Fonts (Non-Latin first, DM Serif Display / Lexend fallback) */
       --font-headline: 'Noto Serif TC', 'DM Serif Display', serif;
+      --font-display-num: 'DM Serif Display', 'Noto Serif TC', serif;
       --font-body: 'Noto Sans TC', 'Lexend', sans-serif;
       --font-label: 'Noto Sans TC', 'Lexend', sans-serif;
-      --font-figure: 'DM Serif Display', 'Noto Serif TC', serif;
 
       /* Shape */
       --rounded: 9999px;
       --rounded-lg: 2.25rem 0.5rem 2.25rem 0.5rem;
       --rounded-full: 9999px;
 
-      /* Style effects */
+      /* Moderne effects */
       --ink-border: 2px solid var(--outline);
-      --hairline-rule: 1px solid var(--outline-variant);
-      --ink-rule: 2px solid var(--outline);
       --leaf-mirror: 0.5rem 2.25rem 0.5rem 2.25rem;
       --leaf-mustard: color-mix(in srgb, var(--tertiary) 45%, var(--background));
-      --leaf-mustard-soft: color-mix(in srgb, var(--tertiary) 24%, var(--background));
+      --leaf-sage: var(--primary-container);
       --orb-r: 2.25rem;
       --orb-r-small: 1.75rem;
-      --orb-clearance: 10rem;
+      --orb-clearance: 10.5rem;
       --orbs:
         radial-gradient(circle at calc(100% - 4.375rem) 4.5rem, color-mix(in srgb, var(--data-2) 90%, transparent) var(--orb-r-small), transparent calc(var(--orb-r-small) + 1px)),
         radial-gradient(circle at calc(100% - 6.25rem) 3.625rem, color-mix(in srgb, var(--primary) 85%, transparent) var(--orb-r), transparent calc(var(--orb-r) + 1px)),
         radial-gradient(circle at calc(100% - 8.75rem) 4.375rem, var(--tertiary) var(--orb-r), transparent calc(var(--orb-r) + 1px));
 
-      /* 3. Shared tokens */
-      --positive: #1f6f6b;
-      --warning: #a87710;
-      --focus: #1f6f6b;
-
-      /* Narrative type scale */
-      --display-size: clamp(2.125rem, 1.35rem + 2.8vw, 3.35rem);
-      --headline-size: clamp(1.625rem, 1.2rem + 1.5vw, 2.25rem);
-      --subhead-size: clamp(1.125rem, 1.02rem + 0.45vw, 1.35rem);
+      /* Type scale (Narrative) */
+      --display-size: clamp(2.125rem, 1.5rem + 2.8vw, 3.5rem);
+      --headline-size: clamp(1.625rem, 1.2rem + 1.4vw, 2.25rem);
+      --subhead-size: clamp(1.125rem, 1.05rem + 0.35vw, 1.35rem);
       --body-size: clamp(1.0625rem, 1rem + 0.2vw, 1.125rem);
-      --label-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+      --label-size: 0.8125rem;
 
       /* Spacing scale (4pt base) */
       --space-xs: 0.25rem;
@@ -100,33 +102,17 @@
       overflow-x: clip;
       margin: 0;
       padding: 0;
-      background-color: var(--background);
+      background: var(--background);
       color: var(--on-surface);
       font-family: var(--font-body);
       font-size: var(--body-size);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
+      line-height: 1.65;
+      scroll-behavior: smooth;
     }
     header { position: static !important; }
+    button, input, select, textarea { font-family: inherit; }
 
-    button, input, select, textarea {
-      font-family: inherit;
-      font-size: inherit;
-      color: inherit;
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-      transition: color var(--dur-micro) var(--ease-out), text-decoration-color var(--dur-micro) var(--ease-out);
-    }
-    a:hover {
-      color: var(--secondary);
-      text-decoration-color: var(--secondary);
-    }
-
+    /* Focus rings */
     :focus-visible {
       outline: 3px solid var(--focus);
       outline-offset: 2px;
@@ -136,111 +122,92 @@
       display: grid;
       gap: var(--space-2xl);
       padding: var(--space-lg);
-      max-width: 1180px;
+      max-width: 1140px;
       margin: 0 auto;
-      overflow-x: clip;
+      overflow: hidden;
     }
     .page-grid * { min-width: 0; }
 
-    /* Top bar: static, explicit planner mark top-left */
-    .top-bar {
+    /* Top attribution & navigation masthead */
+    .masthead {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: var(--space-md);
       padding-bottom: var(--space-md);
-      border-bottom: var(--ink-rule);
+      border-bottom: 1px solid var(--outline-variant);
     }
-
     .planner-mark {
       display: inline-flex;
       align-items: center;
       gap: var(--space-sm);
+    }
+    .planner-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
       background: var(--on-surface);
       color: var(--background);
       border-radius: var(--rounded-full);
       padding: var(--space-xs) var(--space-md);
-      font-family: var(--font-label);
       font-size: var(--label-size);
       font-weight: 700;
-      letter-spacing: 0.02em;
-      min-height: 36px;
+      letter-spacing: 0;
     }
-
-    .planner-mark svg {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
+    .dept-label {
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface-variant);
     }
-
-    .top-nav {
+    .quick-nav {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: var(--space-sm);
     }
-
-    .nav-pill {
+    .nav-link {
       display: inline-flex;
       align-items: center;
-      gap: var(--space-xs);
       min-height: 44px;
       padding: var(--space-xs) var(--space-md);
-      border-radius: var(--rounded-full);
-      background: var(--surface-container-low);
-      border: var(--ink-border);
+      border-radius: var(--rounded);
       color: var(--on-surface);
-      font-family: var(--font-label);
-      font-size: 0.875rem;
+      text-decoration: none;
+      font-size: var(--label-size);
       font-weight: 500;
-      text-decoration: none;
-      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+      transition: background-color var(--dur-short) var(--ease-in-out), color var(--dur-short) var(--ease-in-out);
     }
-    .nav-pill:hover {
-      background: var(--surface-container-high);
-      color: var(--on-surface);
-      text-decoration: none;
-    }
-    .nav-pill.nav-pill-accent {
-      background: var(--primary);
-      color: var(--on-primary);
-      border-color: var(--primary);
-    }
-    .nav-pill.nav-pill-accent:hover {
-      background: var(--on-primary-container);
-      color: var(--on-primary);
-      border-color: var(--on-primary-container);
+    .nav-link:hover {
+      background: var(--surface-container);
+      color: var(--primary);
     }
 
-    /* Title block with Moderne multiplied orbs */
+    /* Title Block with Moderne Multiplied Orbs */
     .title-block {
-      background-color: var(--surface-container-low);
+      background-color: var(--background);
       background-image: var(--orbs);
       background-blend-mode: multiply;
       background-repeat: no-repeat;
-      border: var(--ink-border);
-      border-radius: var(--rounded-lg);
-      padding: var(--space-xl);
+      padding: var(--space-xl) var(--space-lg);
+      border-bottom: var(--ink-border);
       position: relative;
     }
     .title-block > * {
       padding-inline-end: var(--orb-clearance);
     }
-
-    .stamp-kicker {
+    .kicker-stamp {
       display: inline-block;
       background: var(--secondary);
       color: var(--on-primary);
-      border-radius: var(--rounded-full);
       padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
       font-family: var(--font-label);
       font-size: var(--label-size);
-      font-weight: 700;
+      font-weight: 500;
       margin-bottom: var(--space-md);
     }
-
-    h1.hero-title {
+    .hero-title {
       font-family: var(--font-headline);
       font-weight: 700;
       font-size: var(--display-size);
@@ -252,23 +219,18 @@
     .hero-title .accent-word {
       color: var(--secondary);
     }
-
-    .hero-subtitle {
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: var(--subhead-size);
-      line-height: 1.55;
-      color: var(--primary);
-      margin: 0 0 var(--space-lg) 0;
-      max-width: 58ch;
-    }
-
     .hero-lede {
+      font-size: var(--subhead-size);
+      font-weight: 500;
+      color: var(--primary);
+      margin: 0 0 var(--space-md) 0;
+      max-width: 52ch;
+    }
+    .hero-copy {
+      max-width: 64ch;
       color: var(--on-surface-variant);
       margin: 0 0 var(--space-lg) 0;
-      max-width: 62ch;
     }
-
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
@@ -286,47 +248,32 @@
       border-radius: var(--rounded);
       padding: var(--space-sm) var(--space-lg);
       font-family: var(--font-label);
-      font-size: 0.95rem;
+      font-size: 0.9375rem;
       font-weight: 500;
-      border: var(--ink-border);
+      border: 0;
       cursor: pointer;
       text-decoration: none;
-      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+      transition: background-color var(--dur-short) var(--ease-in-out), transform var(--dur-micro) var(--ease-out);
     }
-    .btn:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-    }
+    .btn:active { transform: translateY(1px); }
     .btn-primary {
       background: var(--primary);
       color: var(--on-primary);
-      border-color: var(--outline);
     }
-    .btn-primary:hover:not(:disabled) {
-      background: var(--on-primary-container);
-      color: var(--on-primary);
-      text-decoration: none;
-    }
+    .btn-primary:hover { background: var(--on-primary-container); }
     .btn-secondary {
       background: var(--secondary);
       color: var(--on-primary);
-      border-color: var(--outline);
     }
-    .btn-secondary:hover:not(:disabled) {
-      background: var(--error);
-      color: var(--on-primary);
-      text-decoration: none;
+    .btn-secondary:hover {
+      background: var(--on-surface);
     }
     .btn-tertiary {
       background: var(--surface-container);
       color: var(--on-surface);
-      border-color: var(--outline);
+      border: var(--ink-border);
     }
-    .btn-tertiary:hover:not(:disabled) {
-      background: var(--surface-container-high);
-      color: var(--on-surface);
-      text-decoration: none;
-    }
+    .btn-tertiary:hover { background: var(--surface-container-high); }
 
     .chip {
       display: inline-flex;
@@ -336,20 +283,42 @@
       background: var(--on-surface);
       color: var(--background);
       padding: var(--space-xs) var(--space-md);
-      font-family: var(--font-label);
       font-size: var(--label-size);
       font-weight: 500;
     }
 
-    /* Key figures asymmetric strip */
-    .kpi-grid {
+    /* Section Headers */
+    .section-head {
       display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr 1.15fr;
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+    }
+    .section-eyebrow {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--secondary);
+      margin: 0;
+    }
+    .section-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--headline-size);
+      line-height: 1.2;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .section-intro {
+      max-width: 65ch;
+      color: var(--on-surface-variant);
+      margin: 0;
     }
 
-    /* Leaf cards (Moderne treatment #1) */
+    /* Leaf Cards (Moderne Defining Treatment) */
+    .leaf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
     .leaf {
       border: var(--ink-border);
       border-radius: var(--rounded-lg);
@@ -362,662 +331,520 @@
     }
     .leaf:nth-child(even) {
       border-radius: var(--leaf-mirror);
-      background: var(--primary-container);
+      background: var(--leaf-sage);
     }
-    .leaf.leaf-cream {
-      background: var(--surface-container-low);
-    }
-
-    .kpi-label {
-      font-family: var(--font-label);
-      font-size: var(--label-size);
-      font-weight: 700;
-      color: var(--on-surface-variant);
-    }
-    .kpi-value {
-      font-family: var(--font-figure);
-      font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.35rem);
-      line-height: 1.1;
+    .leaf-index {
+      font-family: var(--font-display-num);
+      font-weight: 400;
+      font-size: 2rem;
+      line-height: 1;
       color: var(--on-surface);
-      font-variant-numeric: tabular-nums;
     }
-    .kpi-caption {
-      font-size: 0.92rem;
-      color: var(--on-surface);
-      margin: 0;
-    }
-
-    /* Section Header */
-    .section-block {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-lg);
-      padding-top: var(--space-lg);
-      border-top: var(--hairline-rule);
-    }
-
-    .section-head {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-      gap: var(--space-lg);
-      align-items: end;
-    }
-
-    .section-title {
+    .leaf-title {
       font-family: var(--font-headline);
       font-weight: 700;
-      font-size: var(--headline-size);
-      line-height: 1.2;
-      margin: var(--space-xs) 0 0 0;
-      color: var(--on-surface);
-    }
-    .section-title .accent-word {
-      color: var(--secondary);
-    }
-
-    .section-desc {
-      margin: 0;
-      color: var(--on-surface-variant);
-      max-width: 60ch;
-    }
-
-    /* 4 Pillars Grid */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-lg);
-    }
-
-    .pillar-card {
-      position: relative;
-    }
-
-    .pillar-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-sm);
-      flex-wrap: wrap;
-    }
-
-    .pillar-title {
-      font-family: var(--font-headline);
       font-size: var(--subhead-size);
-      font-weight: 700;
       margin: 0;
       color: var(--on-surface);
     }
-
-    .pillar-body {
+    .leaf-sub {
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+    .leaf-body {
       margin: 0;
       color: var(--on-surface);
-      max-width: 60ch;
+      font-size: 0.96875rem;
     }
-
-    .pillar-meta {
+    .leaf-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
       margin-top: auto;
       padding-top: var(--space-sm);
-      border-top: 1px solid color-mix(in srgb, var(--outline) 22%, transparent);
-      font-size: 0.9rem;
-      color: var(--on-surface-variant);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
     }
 
-    /* Interactive Trait Matcher Panel */
-    .matcher-panel {
+    /* Interactive High-School Experience Mapper */
+    .mapper-panel {
       background: var(--surface-container-low);
       border: var(--ink-border);
       border-radius: var(--rounded-lg);
-      padding: var(--space-xl);
-      display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: var(--space-xl);
-      align-items: start;
-    }
-
-    .trait-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
-      gap: var(--space-sm);
-      margin-top: var(--space-md);
-    }
-
-    .trait-btn {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-sm);
-      text-align: left;
-      min-height: 44px;
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--rounded-full);
-      border: var(--ink-border);
-      background: var(--background);
-      color: var(--on-surface);
-      cursor: pointer;
-      font-size: 0.92rem;
-      font-weight: 500;
-      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
-    }
-    .trait-btn:hover {
-      background: var(--surface-container);
-    }
-    .trait-btn[aria-pressed="true"] {
-      background: var(--on-surface);
-      color: var(--background);
-    }
-    .trait-btn svg {
-      width: 18px;
-      height: 18px;
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-
-    .matcher-output {
-      background: var(--leaf-mustard-soft);
-      border: var(--ink-border);
-      border-radius: var(--leaf-mirror);
       padding: var(--space-lg);
-      display: flex;
-      flex-direction: column;
+      margin-top: var(--space-lg);
+      display: grid;
       gap: var(--space-md);
     }
-
-    .match-bars {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-    .match-row {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .match-row-head {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.875rem;
-      font-weight: 700;
-    }
-    .match-track {
-      height: 12px;
-      border-radius: var(--rounded-full);
-      background: var(--surface-container-low);
-      border: 1px solid var(--outline);
-      overflow: hidden;
-    }
-    .match-fill {
-      height: 100%;
-      border-radius: var(--rounded-full);
-      background: var(--primary);
-      transition: width var(--dur-short) var(--ease-out);
-    }
-    .match-fill.fill-2 { background: var(--data-2); }
-    .match-fill.fill-3 { background: var(--data-3); }
-    .match-fill.fill-4 { background: var(--data-4); }
-
-    /* Program & Resources Filter + Grid */
-    .pill-tabs {
+    .pill-group {
       display: flex;
       flex-wrap: wrap;
       gap: var(--space-sm);
     }
-    .tab-pill {
+    .pill-tab {
       min-height: 44px;
       padding: var(--space-xs) var(--space-md);
       border-radius: var(--rounded-full);
       border: var(--ink-border);
       background: var(--surface-container-low);
       color: var(--on-surface);
-      font-family: var(--font-label);
-      font-size: 0.9rem;
+      font-size: var(--label-size);
       font-weight: 500;
       cursor: pointer;
-      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+      transition: background-color var(--dur-short) var(--ease-in-out), color var(--dur-short) var(--ease-in-out);
     }
-    .tab-pill:hover {
+    .pill-tab:hover {
       background: var(--surface-container);
     }
-    .tab-pill.active,
-    .tab-pill[aria-pressed="true"] {
+    .pill-tab[aria-pressed="true"] {
       background: var(--on-surface);
       color: var(--background);
     }
-
-    .program-grid {
+    .mapper-output {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
       gap: var(--space-lg);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--outline-variant);
+      align-items: start;
     }
-
-    .program-card h3 {
+    .mapper-advice h3 {
       font-family: var(--font-headline);
+      font-weight: 700;
+      margin: 0 0 var(--space-xs) 0;
       font-size: var(--subhead-size);
-      margin: 0;
-      line-height: 1.3;
     }
-    .program-card p {
+    .mapper-advice p {
       margin: 0;
       max-width: 60ch;
     }
-    .program-points {
-      margin: 0;
-      padding-inline-start: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
-      color: var(--on-surface);
-      font-size: 0.95rem;
-    }
-
-    /* Recent Department Updates Strip */
-    .updates-panel {
-      background: var(--surface-container-low);
-      border: var(--ink-border);
-      border-radius: var(--leaf-mirror);
-      padding: var(--space-lg);
-    }
-    .updates-table-wrap {
-      overflow-x: auto;
-    }
-    .moderne-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-    }
-    .moderne-table th {
-      text-align: left;
-      padding: var(--space-sm) var(--space-md);
-      border-bottom: var(--ink-rule);
-      font-family: var(--font-label);
-      font-size: var(--label-size);
-      color: var(--on-surface-variant);
-      font-weight: 700;
-    }
-    .moderne-table td {
-      padding: var(--space-sm) var(--space-md);
-      border-bottom: var(--hairline-rule);
-      vertical-align: top;
-    }
-    .moderne-table tr.highlight-row {
-      background: var(--leaf-mustard-soft);
-    }
-    .num-col {
-      font-variant-numeric: tabular-nums;
-      white-space: nowrap;
-      color: var(--on-surface-variant);
-      font-weight: 500;
-    }
-
-    /* Campuses Schematic + Detail */
-    .campus-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.2fr);
-      gap: var(--space-xl);
-      align-items: start;
-    }
-
-    .campus-map-card {
-      background: var(--surface-container-low);
-      border: var(--ink-border);
-      border-radius: var(--rounded-lg);
-      padding: var(--space-lg);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .campus-svg-wrap {
-      width: 100%;
-      min-height: 290px;
-      background: var(--background);
-      border: var(--ink-border);
-      border-radius: var(--leaf-mirror);
-      padding: var(--space-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .campus-node {
-      cursor: pointer;
-      transition: transform var(--dur-micro) var(--ease-out);
-    }
-    .campus-node:hover {
-      transform: scale(1.06);
-    }
-
-    .campus-cards-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .campus-btn-card {
-      text-align: left;
-      width: 100%;
-      min-height: 44px;
-      border: var(--ink-border);
-      border-radius: var(--rounded-lg);
-      background: var(--surface-container-low);
-      padding: var(--space-md) var(--space-lg);
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xs);
-      transition: background-color var(--dur-micro) var(--ease-out);
-    }
-    .campus-btn-card:nth-child(even) {
-      border-radius: var(--leaf-mirror);
-    }
-    .campus-btn-card:hover {
+    .mapper-fit-box {
       background: var(--surface-container);
+      border-radius: var(--leaf-mirror);
+      border: var(--ink-border);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-xs);
     }
-    .campus-btn-card[aria-pressed="true"] {
-      background: var(--primary-container);
+    .mapper-fit-label {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--secondary);
     }
 
-    .campus-btn-head {
+    /* Key Figures + 5 Core Programs Grid */
+    .figures-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .figure-leaf {
+      border: var(--ink-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      background: var(--leaf-sage);
+    }
+    .figure-leaf:nth-child(odd) {
+      border-radius: var(--leaf-mirror);
+      background: var(--leaf-mustard);
+    }
+    .figure-kicker {
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface-variant);
+    }
+    .figure-value {
+      font-family: var(--font-display-num);
+      font-weight: 400;
+      font-size: clamp(2rem, 1.5rem + 1.5vw, 2.75rem);
+      line-height: 1.1;
+      color: var(--on-surface);
+      margin: var(--space-xs) 0;
+    }
+    .figure-caption {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--on-surface);
+      margin: 0;
+    }
+
+    /* Programs Structured Editorial Grid (running prose on cream + hairline rules) */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(310px, 100%), 1fr));
+      gap: var(--space-xl) var(--space-lg);
+      padding-top: var(--space-md);
+    }
+    .program-item {
+      border-top: var(--ink-border);
+      padding-top: var(--space-md);
+      display: grid;
+      gap: var(--space-sm);
+      align-content: start;
+    }
+    .program-meta {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: var(--space-sm);
+      font-size: var(--label-size);
+      color: var(--primary);
       font-weight: 700;
-      font-size: 1.05rem;
     }
-    .campus-btn-sub {
-      font-size: 0.92rem;
+    .program-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: var(--subhead-size);
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .program-desc {
+      margin: 0;
+      color: var(--on-surface-variant);
+      max-width: 60ch;
+    }
+    .program-highlight {
+      margin: 0;
+      padding-left: var(--space-md);
+      border-left: 3px solid var(--secondary);
+      font-size: 0.9375rem;
+      color: var(--on-surface);
+    }
+
+    /* Five Campuses Explorer & Directory */
+    .campus-explorer {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .campus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .campus-card {
+      background: var(--surface-container-low);
+      border: var(--ink-border);
+      border-radius: var(--leaf-mirror);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      gap: var(--space-xs);
+      align-content: start;
+      transition: background-color var(--dur-short) var(--ease-in-out);
+    }
+    .campus-card.is-highlighted {
+      background: var(--leaf-mustard);
+    }
+    .campus-name {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .campus-tag {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .campus-detail {
+      margin: 0;
+      font-size: 0.9375rem;
       color: var(--on-surface-variant);
     }
-
-    .campus-detail-box {
-      background: var(--leaf-mustard);
-      border: var(--ink-border);
-      border-radius: var(--rounded-lg);
-      padding: var(--space-lg);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
+    .campus-phone {
+      margin-top: var(--space-xs);
+      font-family: 'Lexend', 'Noto Sans TC', sans-serif;
+      font-variant-numeric: tabular-nums;
+      font-size: var(--label-size);
+      font-weight: 500;
+      color: var(--on-surface);
     }
 
-    /* FAQ Search & Accordion */
+    /* Alumni Network Band */
+    .alumni-band {
+      background: var(--surface-container);
+      border: var(--ink-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl) var(--space-lg);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .alumni-pillars {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .alumni-row {
+      background: var(--surface-container-low);
+      border: var(--ink-border);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+    }
+    .alumni-row strong {
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+    .alumni-row span {
+      font-size: var(--label-size);
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* Interactive FAQ & Search Section */
     .faq-controls {
       background: var(--surface-container-low);
       border: var(--ink-border);
       border-radius: var(--rounded-lg);
       padding: var(--space-lg);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .search-row {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
       gap: var(--space-md);
-      align-items: end;
     }
-
-    .field-group {
+    .search-row {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: var(--space-md);
+    }
+    .input-field {
+      flex: 1 1 280px;
+      display: grid;
       gap: var(--space-xs);
     }
-    .field-label {
-      font-family: var(--font-label);
-      font-size: 0.875rem;
+    .input-label {
+      font-size: var(--label-size);
       font-weight: 700;
       color: var(--on-surface);
     }
-
-    .pill-input,
-    .pill-select {
+    .pill-input {
+      width: 100%;
       min-height: 44px;
-      width: 100%;
       padding: var(--space-sm) var(--space-lg);
-      border-radius: var(--rounded-full);
+      border-radius: var(--rounded);
       border: var(--ink-border);
       background: var(--background);
       color: var(--on-surface);
+      font-size: 1rem;
     }
-    .pill-select {
-      padding-inline-end: 2.5rem;
+    .pill-input::placeholder {
+      color: var(--on-surface-variant);
     }
-
-    .leaf-textarea {
-      width: 100%;
-      min-height: 130px;
-      padding: var(--space-md) var(--space-lg);
-      border-radius: var(--rounded-lg);
-      border: var(--ink-border);
-      background: var(--background);
-      color: var(--on-surface);
-      line-height: 1.6;
-      resize: vertical;
-    }
-
-    .faq-toolbar {
+    .faq-status-bar {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: var(--space-md);
-    }
-
-    .faq-count {
-      font-size: 0.92rem;
+      gap: var(--space-sm);
+      font-size: var(--label-size);
       color: var(--on-surface-variant);
-      font-weight: 500;
-      font-variant-numeric: tabular-nums;
     }
-
     .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
+      display: grid;
+      gap: var(--space-sm);
+      margin-top: var(--space-md);
     }
-
     .faq-item {
-      border: var(--ink-border);
-      border-radius: var(--rounded-lg);
       background: var(--surface-container-low);
+      border: var(--ink-border);
+      border-radius: var(--leaf-mirror);
       overflow: hidden;
     }
-    .faq-item:nth-child(even) {
-      border-radius: var(--leaf-mirror);
-    }
-
     .faq-trigger {
       width: 100%;
-      min-height: 56px;
+      min-height: 52px;
       padding: var(--space-md) var(--space-lg);
       background: transparent;
       border: 0;
+      color: var(--on-surface);
       text-align: left;
-      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: var(--space-md);
-      color: var(--on-surface);
+      cursor: pointer;
+      font-size: 1.0625rem;
+      font-weight: 700;
     }
     .faq-trigger:hover {
       background: var(--surface-container);
     }
-    .faq-trigger-left {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .faq-q-wrap {
+      display: grid;
+      gap: var(--space-xs);
     }
-    .faq-q {
+    .faq-cat-label {
+      font-size: 0.75rem;
       font-weight: 700;
-      font-size: 1.05rem;
-      line-height: 1.4;
+      color: var(--primary);
     }
-
+    .faq-chevron {
+      flex-shrink: 0;
+      transition: transform var(--dur-short) var(--ease-in-out);
+    }
+    .faq-trigger[aria-expanded="true"] .faq-chevron {
+      transform: rotate(180deg);
+    }
     .faq-answer {
       padding: 0 var(--space-lg) var(--space-lg) var(--space-lg);
-      border-top: var(--hairline-rule);
-      padding-top: var(--space-md);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-    .faq-answer[hidden] {
-      display: none;
+      border-top: 1px solid var(--outline-variant);
+      color: var(--on-surface-variant);
     }
     .faq-answer p {
-      margin: 0;
+      margin: var(--space-md) 0 0 0;
       max-width: 65ch;
       color: var(--on-surface);
     }
-    .faq-answer-actions {
+    .faq-empty {
+      background: var(--surface-container);
+      border: var(--ink-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      text-align: center;
+      display: grid;
+      gap: var(--space-md);
+      justify-items: center;
+    }
+
+    /* Interactive Question Draft Helper + LINE Consultation Hub */
+    .line-consult-card {
+      background: var(--leaf-sage);
+      border: var(--ink-border);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl) var(--space-lg);
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .line-info {
+      display: grid;
+      gap: var(--space-md);
+      align-content: start;
+    }
+    .line-url-box {
+      background: var(--surface-container-low);
+      border: var(--ink-border);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: space-between;
       gap: var(--space-sm);
     }
-
-    .empty-state {
-      border: var(--ink-border);
-      border-radius: var(--rounded-lg);
+    .line-url-text {
+      font-family: 'Lexend', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--on-surface);
+      word-break: break-all;
+      user-select: all;
+    }
+    .copy-feedback {
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--primary);
+      min-height: 1.4em;
+      margin: 0;
+    }
+    .qr-panel {
       background: var(--surface-container-low);
-      padding: var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-md);
-    }
-
-    /* LINE Consultation Hub */
-    .line-hub {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
-      gap: var(--space-xl);
-      align-items: stretch;
-    }
-
-    .qr-card {
-      background: var(--primary-container);
       border: var(--ink-border);
-      border-radius: var(--rounded-lg);
-      padding: var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      border-radius: var(--leaf-mirror);
+      padding: var(--space-lg);
+      display: grid;
+      justify-items: center;
+      gap: var(--space-sm);
       text-align: center;
-      gap: var(--space-md);
+    }
+    .qr-frame {
+      width: 220px;
+      max-width: 100%;
+      aspect-ratio: 1;
+      background: var(--surface-container-low);
+      border: var(--ink-border);
+      border-radius: 0.75rem;
+      padding: var(--space-xs);
+      display: grid;
+      place-items: center;
+    }
+    .qr-frame svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .qr-caption {
+      margin: 0;
+      font-size: var(--label-size);
+      font-weight: 700;
+      color: var(--on-surface);
+    }
+    .qr-sub {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: var(--on-surface-variant);
     }
 
-    .qr-frame {
-      width: min(290px, 100%);
+    /* Question Builder Drawer inside LINE Hub */
+    .draft-box {
       background: var(--surface-container-low);
       border: var(--ink-border);
       border-radius: var(--leaf-mirror);
       padding: var(--space-md);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-sm);
-    }
-
-    .qr-frame img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 300px;
-      object-fit: contain;
-      border-radius: 0.75rem;
-    }
-
-    .qr-fallback {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-md) var(--space-sm);
-      width: 100%;
-    }
-
-    .composer-card {
-      background: var(--surface-container-low);
-      border: var(--ink-border);
-      border-radius: var(--leaf-mirror);
-      padding: var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-md);
-    }
-
-    .composer-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-md);
+      gap: var(--space-sm);
     }
-
-    .status-banner {
+    .draft-textarea {
+      width: 100%;
+      min-height: 88px;
       padding: var(--space-sm) var(--space-md);
-      border-radius: var(--rounded-full);
       border: var(--ink-border);
-      background: var(--primary-container);
-      color: var(--on-primary-container);
-      font-size: 0.9rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-xs);
-    }
-    .status-banner[hidden] {
-      display: none;
-    }
-
-    .saved-badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-xs);
-      align-items: center;
+      border-radius: 1rem;
+      background: var(--background);
+      color: var(--on-surface);
+      font-size: 0.9375rem;
+      resize: vertical;
     }
 
     /* Footer */
     .site-footer {
-      border-top: var(--ink-rule);
+      border-top: var(--ink-border);
       padding-top: var(--space-lg);
       padding-bottom: var(--space-xl);
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       gap: var(--space-md);
+      font-size: var(--label-size);
       color: var(--on-surface-variant);
-      font-size: 0.9rem;
     }
 
-    /* Reveal animation */
-    .reveal-item {
-      opacity: 1;
-      transform: translateY(0);
+    /* Scroll reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
       transition: opacity var(--dur-long) var(--ease-out), transform var(--dur-long) var(--ease-out);
     }
-
-    /* Container query adaptation */
-    .card-wrapper { container-type: inline-size; }
-    @container (max-width: 380px) {
-      .pillar-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    @media (max-width: 900px) {
-      .kpi-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .section-head,
-      .matcher-panel,
-      .campus-layout,
-      .line-hub {
+    @media (max-width: 780px) {
+      .mapper-output,
+      .alumni-band,
+      .line-consult-card {
         grid-template-columns: 1fr;
+      }
+      .title-block > * {
+        padding-inline-end: 0;
+      }
+      .title-block {
+        background-image: none;
       }
     }
 
@@ -1027,17 +854,7 @@
         gap: var(--space-xl);
       }
       .title-block {
-        padding: var(--space-lg);
-        background-image: none;
-      }
-      .title-block > * {
-        padding-inline-end: 0;
-      }
-      .kpi-grid,
-      .pillars-grid,
-      .composer-grid,
-      .search-row {
-        grid-template-columns: 1fr;
+        padding: var(--space-lg) var(--space-md);
       }
     }
 
@@ -1047,1475 +864,1245 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page-grid">
-    <!-- Top Header: explicitly labeled top-left planner mark -->
-    <header class="top-bar">
-      <div class="planner-mark" aria-label="規劃單位標示">
-        <i data-lucide="compass" aria-hidden="true"></i>
-        <span>劉祥得規劃</span>
+
+    <!-- Top Attribution & Navigation -->
+    <header class="masthead">
+      <div class="planner-mark">
+        <span class="planner-badge">劉祥得規劃</span>
+        <span class="dept-label">銘傳大學公共事務與行政管理學系・特殊選才探索網站</span>
       </div>
-      <nav class="top-nav" aria-label="頁面快速導覽">
-        <a class="nav-pill" href="#highlights">四大亮點</a>
-        <a class="nav-pill" href="#programs">學制與資源</a>
-        <a class="nav-pill" href="#campuses">五大校區</a>
-        <a class="nav-pill" href="#faq">常見問答</a>
-        <a class="nav-pill nav-pill-accent" href="#line-consult">LINE 一對一諮詢</a>
+      <nav class="quick-nav" aria-label="頁面快速導覽">
+        <a class="nav-link" href="#highlights">四大亮點</a>
+        <a class="nav-link" href="#programs">核心制度與認證</a>
+        <a class="nav-link" href="#campuses">五大校區</a>
+        <a class="nav-link" href="#faq-section">常見問答</a>
+        <a class="nav-link" href="#line-consult">LINE 諮詢</a>
       </nav>
     </header>
 
-    <!-- Opening Title Block (clean professional title without 劉祥得) -->
-    <section class="title-block" aria-labelledby="main-title">
-      <span class="stamp-kicker">116 學年度特殊選才・高中生升學互動指南</span>
-      <h1 id="main-title" class="hero-title">
-        銘傳大學公共事務與行政管理學系：<span class="accent-word">特殊選才</span>互動諮詢與問答
+    <!-- Hero Title Block -->
+    <section class="title-block" aria-labelledby="hero-heading">
+      <span class="kicker-stamp">高中生特殊選才互動諮詢指南</span>
+      <h1 class="hero-title" id="hero-heading">
+        銘傳公事系<br><span class="accent-word">特殊選才</span>探索指南
       </h1>
-      <p class="hero-subtitle">
-        給關心公共議題、樂於動手實作的你——用 AI 工具、社會實踐與青年領導力，開啟公共治理的大門。
-      </p>
       <p class="hero-lede">
-        本網站專為準備或認識「特殊選才」的高中同學設計，完整整理銘傳大學公事系（Department of Public Affairs and Administration）的核心培育特色、五年一貫學碩士、暑期實習、英語簡報競賽、情境教室、美國 MSCHE 八年期再認證與五大校區資訊，並提供即時搜尋問答與 LINE 一對一諮詢通道。
+        給關心公共議題、熱愛社會行動與數位工具的高中生：從這裡看懂公共事務與行政管理學系的學習藍圖、實務資源與升學路徑。
+      </p>
+      <p class="hero-copy">
+        特殊選才看重的不是單一學科分數，而是你對社會脈動的觀察力、跨領域問題解決能力與行動熱忱。銘傳公事系結合美國 MSCHE 國際認證品質、五年一貫學碩士銜接、實務實習與 AI 治理應用，協助你在大學四年打造清晰的公共領導力。
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#line-consult">
-          <i data-lucide="message-circle" aria-hidden="true"></i>
-          <span>加入 LINE 一對一諮詢</span>
+          <i data-lucide="message-circle" width="18" height="18" aria-hidden="true"></i>
+          前往 LINE 即時諮詢
         </a>
-        <a class="btn btn-secondary" href="#matcher">
-          <i data-lucide="sparkles" aria-hidden="true"></i>
-          <span>測測你的選才亮點契合度</span>
+        <a class="btn btn-secondary" href="#faq-section">
+          <i data-lucide="search" width="18" height="18" aria-hidden="true"></i>
+          搜尋特殊選才問答
         </a>
-        <a class="btn btn-tertiary" href="#faq">
-          <i data-lucide="search" aria-hidden="true"></i>
-          <span>搜尋常見問題</span>
-        </a>
+        <a class="btn btn-tertiary" href="#highlights">認識四大核心亮點</a>
       </div>
     </section>
 
     <!-- Key Figures Strip -->
-    <section aria-label="系所核心關鍵指標">
-      <div class="kpi-grid">
-        <article class="leaf">
-          <span class="kpi-label">國際教學認證</span>
-          <div class="kpi-value">8 年期</div>
-          <p class="kpi-caption">銘傳大學榮獲美國 MSCHE 最高八年期再認證，本系表現亮眼。</p>
+    <section aria-label="學系核心指標">
+      <div class="figures-strip">
+        <article class="figure-leaf reveal">
+          <div class="figure-kicker">國際教育品質保證</div>
+          <div class="figure-value">8 Years</div>
+          <p class="figure-caption">銘傳大學榮獲美國 MSCHE 最高八年期再認證，公事系表現領航全國</p>
         </article>
-        <article class="leaf">
-          <span class="kpi-label">五年一貫學碩士</span>
-          <div class="kpi-value">4+1 年</div>
-          <p class="kpi-caption">大學部提前卡位碩士班課程，縮短修業年限、加速學術與職涯佈局。</p>
+        <article class="figure-leaf reveal">
+          <div class="figure-kicker">學碩士加速銜接</div>
+          <div class="figure-value">4+1</div>
+          <p class="figure-caption">五年一貫計畫提前卡位碩士班，累積政策研究與管理專業</p>
         </article>
-        <article class="leaf">
-          <span class="kpi-label">跨區學習網絡</span>
-          <div class="kpi-value">5 大校區</div>
-          <p class="kpi-caption">涵蓋台北、桃園、基河、金門與美國密西根分校之多校區資源。</p>
+        <article class="figure-leaf reveal">
+          <div class="figure-kicker">跨海內外學習基地</div>
+          <div class="figure-value">5 Sites</div>
+          <p class="figure-caption">台北、桃園、基河、金門與美國密西根分校五大校區網絡</p>
         </article>
-        <article class="leaf">
-          <span class="kpi-label">特殊選才核心</span>
-          <div class="kpi-value">4 大維度</div>
-          <p class="kpi-caption">公共治理 × AI 應用 × 社會實踐 × 青年領導力，多元展現個人潛力。</p>
+        <article class="figure-leaf reveal">
+          <div class="figure-kicker">特選四大核心能力</div>
+          <div class="figure-value">4 Pillars</div>
+          <p class="figure-caption">公共治理 × AI 應用 × 社會實踐 × 青年領導力</p>
         </article>
       </div>
     </section>
 
-    <!-- Section 1: Four Core Highlights + Interactive Trait Matcher -->
-    <section id="highlights" class="section-block" aria-labelledby="highlights-heading">
+    <!-- Section 1: 4 Core Highlights + Interactive High School Experience Mapper -->
+    <section id="highlights" aria-labelledby="highlights-heading">
       <div class="section-head">
-        <div>
-          <span class="chip">特殊選才四大核心亮點</span>
-          <h2 id="highlights-heading" class="section-title">
-            不只是背法條：公事系看重的<span class="accent-word">四種未來能力</span>
-          </h2>
-        </div>
-        <p class="section-desc">
-          特殊選才不以單一考試成績論英雄。只要你在高中階段展現對公共議題的好奇、善用科技解決問題，或曾投入社會參與與團隊領導，這裡就是發揮舞台。
+        <p class="section-eyebrow">CORE HIGHLIGHTS・特殊選才核心亮點</p>
+        <h2 class="section-title" id="highlights-heading">公共治理 × AI 應用 × 社會實踐 × 青年領導力</h2>
+        <p class="section-intro">
+          我們尋找願意把想法化為行動的高中生。無論你的強項是學生自治、社區志工、資料探究或議題簡報，都能在以下四大能力象限中找到對應的發展舞台。
         </p>
       </div>
 
-      <div class="pillars-grid">
-        <div class="card-wrapper">
-          <article class="leaf pillar-card">
-            <div class="pillar-header">
-              <h3 class="pillar-title">01｜公共治理（Public Governance）</h3>
-              <span class="chip">制度觀察 × 政策思維</span>
-            </div>
-            <p class="pillar-body">
-              從校園規範、社區營造到城市永續政策，學習如何拆解公共問題、協調多元利害關係人，並設計兼具效率與公平的解決方案。
-            </p>
-            <div class="pillar-meta">
-              <strong>高中生常見切入點：</strong>
-              <span>公民課議題探究、模擬聯合國、校園政策提案、地方公共事務觀察筆記。</span>
-            </div>
-          </article>
-        </div>
+      <div class="leaf-grid">
+        <article class="leaf reveal">
+          <span class="leaf-index">01</span>
+          <h3 class="leaf-title">公共治理</h3>
+          <p class="leaf-sub">Public Governance｜從生活議題讀懂政策與制度設計</p>
+          <p class="leaf-body">
+            涵蓋政府決策運作、公共政策分析、行政管理與法政基礎。透過真實政策案例與情境模擬，學會拆解「政策為什麼有效或失靈」，建立兼顧效率與公共利益的決策視角。
+          </p>
+          <div class="leaf-tags">
+            <span class="chip">政策分析</span>
+            <span class="chip">行政管理</span>
+            <span class="chip">跨部門協作</span>
+          </div>
+        </article>
 
-        <div class="card-wrapper">
-          <article class="leaf pillar-card">
-            <div class="pillar-header">
-              <h3 class="pillar-title">02｜AI 應用（AI in Public Affairs）</h3>
-              <span class="chip">數位治理 × 數據判讀</span>
-            </div>
-            <p class="pillar-body">
-              當代公共管理早已進入智慧治理時代。結合生成式 AI、資料分析與數位工具，提升政策溝通、民意判讀與行政決策品質。
-            </p>
-            <div class="pillar-meta">
-              <strong>高中生常見切入點：</strong>
-              <span>運用 AI 工具製作專題簡報、開放資料視覺化、數位公民專題、程式或表單自動化小工具。</span>
-            </div>
-          </article>
-        </div>
+        <article class="leaf reveal">
+          <span class="leaf-index">02</span>
+          <h3 class="leaf-title">AI 應用</h3>
+          <p class="leaf-sub">AI Application｜把人工智慧轉化為公共問題解方</p>
+          <p class="leaf-body">
+            將生成式 AI、資料視覺化與數位工具導入民意分析、公共溝通與行政流程優化。訓練同學不僅會使用 AI 工具，更能思考演算法倫理與數位治理的制度規範。
+          </p>
+          <div class="leaf-tags">
+            <span class="chip">數位治理</span>
+            <span class="chip">資料決策</span>
+            <span class="chip">AI 工作流</span>
+          </div>
+        </article>
 
-        <div class="card-wrapper">
-          <article class="leaf pillar-card">
-            <div class="pillar-header">
-              <h3 class="pillar-title">03｜社會實踐（Social Practice）</h3>
-              <span class="chip">場域行動 × 在地連結</span>
-            </div>
-            <p class="pillar-body">
-              把課堂理論帶進真實社區與組織現場，培養走入人群、傾聽需求、整合資源並落實改變的實作能力。
-            </p>
-            <div class="pillar-meta">
-              <strong>高中生常見切入點：</strong>
-              <span>志工服務學習、地方創生田野調查、公益倡議專案、社區或非營利組織協作經驗。</span>
-            </div>
-          </article>
-        </div>
+        <article class="leaf reveal">
+          <span class="leaf-index">03</span>
+          <h3 class="leaf-title">社會實踐</h3>
+          <p class="leaf-sub">Social Practice｜走出教室連結社區、公部門與 NGO</p>
+          <p class="leaf-body">
+            重視理論與現場的雙向對話。透過田野觀察、暑期實務實習與地方議題專案，讓學生直接參與公私部門與非營利組織運作，累積真實的社會影響力。
+          </p>
+          <div class="leaf-tags">
+            <span class="chip">暑期實習</span>
+            <span class="chip">議題行動</span>
+            <span class="chip">在地連結</span>
+          </div>
+        </article>
 
-        <div class="card-wrapper">
-          <article class="leaf pillar-card">
-            <div class="pillar-header">
-              <h3 class="pillar-title">04｜青年領導力（Youth Leadership）</h3>
-              <span class="chip">團隊協作 × 跨域溝通</span>
-            </div>
-            <p class="pillar-body">
-              公共事務需要能凝聚共識的行動者。透過跨部門溝通、議題簡報與團隊帶領，鍛鍊自信表達與帶領夥伴解決難題的能力。
-            </p>
-            <div class="pillar-meta">
-              <strong>高中生常見切入點：</strong>
-              <span>學生會／班聯會幹部、社團社長與活動總召、英語或專題簡報競賽、跨校合作專案。</span>
-            </div>
-          </article>
-        </div>
+        <article class="leaf reveal">
+          <span class="leaf-index">04</span>
+          <h3 class="leaf-title">青年領導力</h3>
+          <p class="leaf-sub">Youth Leadership｜用雙語簡報與團隊協作發揮影響力</p>
+          <p class="leaf-body">
+            藉由系上英語簡報競賽、情境教室演練與跨團隊專題合作，強化論述說服力、專案統籌與衝突協調能力，培養能站上國際與公共舞台的新世代青年領袖。
+          </p>
+          <div class="leaf-tags">
+            <span class="chip">英語簡報</span>
+            <span class="chip">團隊統籌</span>
+            <span class="chip">公開表達</span>
+          </div>
+        </article>
       </div>
 
-      <!-- Interactive Trait & Experience Matcher -->
-      <div id="matcher" class="matcher-panel" aria-labelledby="matcher-heading">
+      <!-- Interactive High School Background Mapper -->
+      <div class="mapper-panel reveal" aria-labelledby="mapper-title">
         <div>
-          <span class="stamp-kicker">互動自我盤點工具</span>
-          <h3 id="matcher-heading" class="pillar-title">勾選你高中累積的經歷，看看最契合哪項選才亮點</h3>
-          <p class="hero-lede" style="margin-top: var(--space-xs); margin-bottom: 0;">
-            點選下列符合你的學習或活動經驗，系統會即時分析你的四大能力落點，並幫你把亮點帶入下方 LINE 諮詢草稿。
+          <strong id="mapper-title">高中經歷對照器：點選你的優勢經驗，看看特殊選才怎麼發揮</strong>
+          <p style="margin: var(--space-xs) 0 0 0; color: var(--on-surface-variant); font-size: 0.9375rem;">
+            選擇一項你最常參與的高中活動，系統會即時提示如何在備審與面試中扣合四大亮點。
           </p>
-          <div class="trait-grid" id="trait-grid" role="group" aria-label="高中經歷勾選清單">
-            <!-- Populated by JS -->
-          </div>
-          <div style="margin-top: var(--space-md); display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center;">
-            <button type="button" class="btn btn-tertiary" id="reset-traits-btn" onclick="resetTraits(this)">重設勾選</button>
-            <span class="faq-count" id="trait-selected-count">已勾選 0 項經歷</span>
-          </div>
         </div>
-
-        <aside class="matcher-output" aria-live="polite">
-          <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm);">
-            <strong style="font-size: 1.05rem;">你的特殊選才亮點雷達</strong>
-            <span class="chip" id="matcher-top-badge">等待勾選</span>
-          </div>
-          <div class="match-bars">
-            <div class="match-row">
-              <div class="match-row-head"><span>公共治理</span><span id="score-gov">0%</span></div>
-              <div class="match-track"><div class="match-fill" id="bar-gov" style="width: 0%;"></div></div>
-            </div>
-            <div class="match-row">
-              <div class="match-row-head"><span>AI 應用</span><span id="score-ai">0%</span></div>
-              <div class="match-track"><div class="match-fill fill-2" id="bar-ai" style="width: 0%;"></div></div>
-            </div>
-            <div class="match-row">
-              <div class="match-row-head"><span>社會實踐</span><span id="score-social">0%</span></div>
-              <div class="match-track"><div class="match-fill fill-3" id="bar-social" style="width: 0%;"></div></div>
-            </div>
-            <div class="match-row">
-              <div class="match-row-head"><span>青年領導力</span><span id="score-lead">0%</span></div>
-              <div class="match-track"><div class="match-fill fill-4" id="bar-lead" style="width: 0%;"></div></div>
-            </div>
-          </div>
-          <p id="matcher-advice" style="margin: 0; font-size: 0.95rem; color: var(--on-surface);">
-            先在左側點選 1 到 4 項你的高中經歷，就能獲得對應的備審重點與系上資源推薦！
-          </p>
-          <button type="button" class="btn btn-primary" onclick="applyMatcherToLine()">
-            <i data-lucide="arrow-down-right" aria-hidden="true"></i>
-            <span>將分析結果帶入 LINE 諮詢訊息</span>
-          </button>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Section 2: Programs, Facilities, Certification & Alumni Network -->
-    <section id="programs" class="section-block" aria-labelledby="programs-heading">
-      <div class="section-head">
-        <div>
-          <span class="chip">完整系所資源總覽</span>
-          <h2 id="programs-heading" class="section-title">
-            從情境教室到五年一貫：<span class="accent-word">學研實務</span>一次到位
-          </h2>
+        <div class="pill-group" role="group" aria-label="選擇高中經歷類型">
+          <button type="button" class="pill-tab" aria-pressed="true" onclick="selectExperience('council', this)">學生會 / 社團幹部</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="selectExperience('service', this)">志工 / 社區與環保行動</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="selectExperience('research', this)">小論文 / 探究與 AI 專題</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="selectExperience('speech', this)">辯論 / 英語與簡報競賽</button>
         </div>
-        <p class="section-desc">
-          公事系不僅提供紮實的課程規劃與專兼任師資指導，更整合五年一貫、暑期實習、英語簡報競賽、美國 MSCHE 認證與校友網絡，陪你從大一走到職涯起點。
-        </p>
-      </div>
-
-      <div class="pill-tabs" role="group" aria-label="篩選學習資源類別">
-        <button type="button" class="tab-pill active" data-prog-cat="all" aria-pressed="true" onclick="filterPrograms('all', this)">全部重點資源（6）</button>
-        <button type="button" class="tab-pill" data-prog-cat="academic" aria-pressed="false" onclick="filterPrograms('academic', this)">升學加速與認證</button>
-        <button type="button" class="tab-pill" data-prog-cat="practice" aria-pressed="false" onclick="filterPrograms('practice', this)">實務與情境演練</button>
-        <button type="button" class="tab-pill" data-prog-cat="global" aria-pressed="false" onclick="filterPrograms('global', this)">雙語競賽與校友網</button>
-      </div>
-
-      <div class="program-grid" id="program-grid">
-        <article class="leaf program-card" data-prog-cat="academic">
-          <div class="pillar-header">
-            <span class="chip">升學加速</span>
-            <span class="num-col">2026 年 4 月公告</span>
+        <div class="mapper-output" id="mapper-output">
+          <div class="mapper-advice">
+            <h3 id="mapper-heading">學生自治與社團幹部經驗 → 展現「公共治理 × 青年領導力」</h3>
+            <p id="mapper-desc">
+              你在校內處理班聯會提案、協調社團預算或溝通師生意見的歷程，正是微型的「公共決策與行政管理」。備審資料建議具體寫出：當時面對什麼衝突或資源限制、你如何收集意見並促成共識，以及事後如何檢討改進。
+            </p>
           </div>
-          <h3>五年一貫學碩士專案</h3>
-          <p>
-            針對表現優異的大學部同學提供「提前卡位碩士生」制度，大四即可修讀碩士班課程並折抵學分，最快五年完成學士與碩士雙學位。
-          </p>
-          <ul class="program-points">
-            <li>節省一年修業時間與學費成本</li>
-            <li>延續專任教師研究脈絡，深化政策與行政專業</li>
-          </ul>
-        </article>
-
-        <article class="leaf program-card" data-prog-cat="practice">
-          <div class="pillar-header">
-            <span class="chip">職場銜接</span>
-            <span class="num-col">2026 年 3 月公告</span>
+          <div class="mapper-fit-box">
+            <span class="mapper-fit-label">面試延伸建議</span>
+            <strong id="mapper-focus">結合情境教室與五年一貫規劃</strong>
+            <span id="mapper-tip" style="font-size: 0.9375rem; color: var(--on-surface-variant);">
+              可主動分享你對校園或地方公共事務的觀察，並說明想如何運用系上情境教室與團隊專案訓練溝通協調能力。
+            </span>
           </div>
-          <h3>暑期實務實習制度</h3>
-          <p>
-            鼓勵同學於暑假期間進入實務場域學習，並開放「自行申請實習機構」管道，讓同學依個人興趣媒合公部門、非營利組織或企業公共事務單位。
-          </p>
-          <ul class="program-points">
-            <li>將課堂知識轉化為真實行政與專案執行經驗</li>
-            <li>提早建立職場人脈與履歷代表作</li>
-          </ul>
-        </article>
-
-        <article class="leaf program-card" data-prog-cat="global">
-          <div class="pillar-header">
-            <span class="chip">雙語表達</span>
-            <span class="num-col">2026 年 3 月公告</span>
-          </div>
-          <h3>公行系英語簡報競賽</h3>
-          <p>
-            系上定期舉辦「英語簡報競賽」，鼓勵同學用英文清楚闡述公共議題、提出政策觀察與創意提案，在友善舞台上鍛鍊雙語敘事力。
-          </p>
-          <ul class="program-points">
-            <li>強化國際溝通、台風展現與視覺化簡報技巧</li>
-            <li>呼應銘傳國際化辦學與跨國學習機會</li>
-          </ul>
-        </article>
-
-        <article class="leaf program-card" data-prog-cat="practice">
-          <div class="pillar-header">
-            <span class="chip">實境教學</span>
-            <span class="num-col">系所專屬空間</span>
-          </div>
-          <h3>情境教室與教研成果</h3>
-          <p>
-            系上建置專屬「情境教室」，配合課程規劃、學術研討會與專兼任教師指導，進行議事模擬、政策聽證、危機應變與團隊簡報演練。
-          </p>
-          <ul class="program-points">
-            <li>結合教師研究成果與學生成果展示，學做合一</li>
-            <li>擺脫純聽講模式，培養臨場溝通與決策反應</li>
-          </ul>
-        </article>
-
-        <article class="leaf program-card" data-prog-cat="academic">
-          <div class="pillar-header">
-            <span class="chip">品質保證</span>
-            <span class="num-col">2026 年 3 月公告</span>
-          </div>
-          <h3>美國 MSCHE 最高八年期再認證</h3>
-          <p>
-            銘傳大學榮獲美國中部各州高等教育評審會（MSCHE）最高八年期再認證肯定，本系亦於評鑑過程中表現亮眼、領航全國同領域系所。
-          </p>
-          <ul class="program-points">
-            <li>教學設計、學習成效評量與國際高等教育標準接軌</li>
-            <li>提升未來海外交換、雙聯或跨國升學的學歷公信力</li>
-          </ul>
-        </article>
-
-        <article class="leaf program-card" data-prog-cat="global">
-          <div class="pillar-header">
-            <span class="chip">系友傳承</span>
-            <span class="num-col">校友園區資源</span>
-          </div>
-          <h3>公事系校友網絡與職涯支持</h3>
-          <p>
-            系上設有「校友園區」平台，串聯歷屆畢業系友於中央與地方政府機關、民意代表幕僚、非營利組織、社區營造及企業公共關係之實務能量。
-          </p>
-          <ul class="program-points">
-            <li>提供學長姐經驗分享、實習線索與職涯導航</li>
-            <li>從公職考試、公共政策幕僚到 ESG 與企業公關皆有出路</li>
-          </ul>
-        </article>
-      </div>
-
-      <!-- Recent Department Announcements grounded from source -->
-      <div class="updates-panel">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-sm); margin-bottom: var(--space-md);">
-          <h3 class="pillar-title">系網近期關鍵公告一覽（資料基準：2025 年 12 月 – 2026 年 4 月）</h3>
-          <span style="font-size: 0.875rem; color: var(--on-surface-variant);">來源：銘傳大學公事系官網最新消息</span>
-        </div>
-        <div class="updates-table-wrap">
-          <table class="moderne-table">
-            <thead>
-              <tr>
-                <th>公告日期</th>
-                <th>公告主題</th>
-                <th>對高中準新生的意義</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="highlight-row">
-                <td class="num-col">2026-04-24</td>
-                <td><strong>五年一貫！提前卡位碩士生</strong></td>
-                <td>入學後若持續保持優秀表現，可透過 4+1 專案加速取得碩士學位。</td>
-              </tr>
-              <tr>
-                <td class="num-col">2026-04-24</td>
-                <td>114 學年度暑期修課（暑修）選課資訊</td>
-                <td>完善的暑期彈性修課機制，方便規劃雙主修、輔系或實習時間。</td>
-              </tr>
-              <tr class="highlight-row">
-                <td class="num-col">2026-03-19</td>
-                <td><strong>銘傳大學榮獲美國 MSCHE 最高八年期再認證（本系表現亮眼）</strong></td>
-                <td>學位品質獲美國認證機構最高等級肯定，學習成效有制度把關。</td>
-              </tr>
-              <tr>
-                <td class="num-col">2026-03-18</td>
-                <td>114 學年度公行系英語簡報競賽報名開始</td>
-                <td>大一即可關注參與系上雙語簡報舞台，累積競賽與表達作品集。</td>
-              </tr>
-              <tr>
-                <td class="num-col">2026-03-07</td>
-                <td>115 年暑假實習「自行申請實習機構」繳交截止日期</td>
-                <td>支持學生依興趣自主接洽實習機構，將公共事務專業落地實踐。</td>
-              </tr>
-              <tr>
-                <td class="num-col">2025-12-24</td>
-                <td>115 學年度碩士在職專班招生諮詢 LINE 官方聯絡方式</td>
-                <td>展現系所重視高互動、即時友善的 LINE 官方招生諮詢服務傳統。</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Five Campuses Information -->
-    <section id="campuses" class="section-block" aria-labelledby="campuses-heading">
+    <!-- Section 2: Academic & Practical Pillars -->
+    <section id="programs" aria-labelledby="programs-heading">
       <div class="section-head">
-        <div>
-          <span class="chip">五大校區全景</span>
-          <h2 id="campuses-heading" class="section-title">
-            從雙北、桃園、金門到<span class="accent-word">美國分校</span>
-          </h2>
-        </div>
-        <p class="section-desc">
-          點選左側示意座標或右側校區按鈕，即可查看銘傳大學五大校區（台北、桃園、基河、金門、美國密西根分校）完整中英文地址與聯絡電話。
+        <p class="section-eyebrow">ACADEMIC &amp; PRACTICAL ECOSYSTEM・學系五大特色資源</p>
+        <h2 class="section-title" id="programs-heading">從課堂情境模擬到美國 MSCHE 國際認證的完整養成</h2>
+        <p class="section-intro">
+          依據系所最新公告與教學規劃，銘傳公事系為大學部同學建立從空間設備、實作競賽、職場實習到跨國品質保證的完整支持系統。
         </p>
       </div>
 
-      <div class="campus-layout">
-        <div class="campus-map-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); flex-wrap: wrap;">
-            <strong style="font-size: 1.05rem;">銘傳五大校區空間示意圖</strong>
-            <span class="chip" id="map-active-label">台北校區</span>
+      <div class="programs-grid">
+        <article class="program-item reveal">
+          <div class="program-meta">
+            <span>學碩銜接制度</span>
+            <span>2026.04.24 最新公告</span>
           </div>
+          <h3 class="program-title">五年一貫學碩士專案</h3>
+          <p class="program-desc">
+            大學部同學可透過五年一貫機制「提前卡位碩士生」，於大四期間預先修讀碩士班課程並抵免學分，縮短修業年限，同時保有研究深度與就業彈性。
+          </p>
+          <p class="program-highlight">
+            適合想深耕政策分析、高普考公職準備、非營利組織管理或數位治理研究的同學提早布局。
+          </p>
+        </article>
 
-          <div class="campus-svg-wrap">
-            <svg viewBox="0 0 520 300" width="100%" height="270" role="img" aria-label="銘傳大學五大校區位置與跨海連結示意圖">
-              <!-- Decorative map gridlines -->
-              <line x1="20" y1="60" x2="500" y2="60" stroke="var(--outline-variant)" stroke-width="1" stroke-dasharray="4 4"/>
-              <line x1="20" y1="150" x2="500" y2="150" stroke="var(--outline-variant)" stroke-width="1" stroke-dasharray="4 4"/>
-              <line x1="20" y1="240" x2="500" y2="240" stroke="var(--outline-variant)" stroke-width="1" stroke-dasharray="4 4"/>
-
-              <!-- Stylized Taiwan island silhouette (schematic vector) -->
-              <path d="M 245 45 C 272 52, 286 85, 282 125 C 278 168, 262 215, 240 258 C 228 248, 212 215, 208 170 C 204 125, 215 72, 245 45 Z"
-                    fill="var(--primary-container)" stroke="var(--outline)" stroke-width="2"/>
-              <text x="242" y="198" text-anchor="middle" font-size="12" font-weight="700" fill="var(--on-primary-container)">臺灣本島</text>
-
-              <!-- Stylized Kinmen island -->
-              <circle cx="95" cy="145" r="24" fill="var(--leaf-mustard)" stroke="var(--outline)" stroke-width="2"/>
-              <text x="95" y="185" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface)">金門離島</text>
-
-              <!-- Stylized Michigan / U.S. campus frame -->
-              <rect x="365" y="42" width="132" height="84" rx="16" fill="var(--leaf-mustard)" stroke="var(--outline)" stroke-width="2"/>
-              <text x="431" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="var(--on-surface)">美國密西根分校</text>
-              <text x="431" y="114" text-anchor="middle" font-size="10" fill="var(--on-surface-variant)">Saginaw, MI</text>
-
-              <!-- Connecting arcs -->
-              <path d="M 119 140 Q 175 100 236 74" fill="none" stroke="var(--primary)" stroke-width="2" stroke-dasharray="5 4"/>
-              <path d="M 264 68 Q 315 35 365 78" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-dasharray="5 4"/>
-
-              <!-- Interactive Campus Nodes -->
-              <g class="campus-node" id="node-taipei" onclick="selectCampus('taipei')" role="button" tabindex="0" aria-label="選取台北校區">
-                <circle cx="255" cy="64" r="11" fill="var(--secondary)" stroke="var(--outline)" stroke-width="2"/>
-                <text x="272" y="61" font-size="12" font-weight="700" fill="var(--on-surface)">台北</text>
-              </g>
-
-              <g class="campus-node" id="node-jihe" onclick="selectCampus('jihe')" role="button" tabindex="0" aria-label="選取基河校區">
-                <circle cx="235" cy="78" r="10" fill="var(--primary)" stroke="var(--outline)" stroke-width="2"/>
-                <text x="195" y="74" font-size="12" font-weight="700" fill="var(--on-surface)">基河</text>
-              </g>
-
-              <g class="campus-node" id="node-taoyuan" onclick="selectCampus('taoyuan')" role="button" tabindex="0" aria-label="選取桃園校區">
-                <circle cx="225" cy="112" r="11" fill="var(--primary)" stroke="var(--outline)" stroke-width="2"/>
-                <text x="180" y="116" font-size="12" font-weight="700" fill="var(--on-surface)">桃園</text>
-              </g>
-
-              <g class="campus-node" id="node-kinmen" onclick="selectCampus('kinmen')" role="button" tabindex="0" aria-label="選取金門校區">
-                <circle cx="95" cy="145" r="10" fill="var(--primary)" stroke="var(--outline)" stroke-width="2"/>
-              </g>
-
-              <g class="campus-node" id="node-usa" onclick="selectCampus('usa')" role="button" tabindex="0" aria-label="選取美國分校">
-                <circle cx="431" cy="88" r="11" fill="var(--primary)" stroke="var(--outline)" stroke-width="2"/>
-              </g>
-            </svg>
+        <article class="program-item reveal">
+          <div class="program-meta">
+            <span>職場實務接軌</span>
+            <span>2026.03.07 暑期實習公告</span>
           </div>
+          <h3 class="program-title">暑期實務實習</h3>
+          <p class="program-desc">
+            學系推動暑期實務實習制度，除了既有合作單位外，也開放同學依個人職涯興趣「自行申請實習機構」（如中央與地方政府機關、研究智庫、民意機構、NGO 與企業公共事務部門）。
+          </p>
+          <p class="program-highlight">
+            在學期間就能實際參與行政專案與公共事務流程，提前驗證興趣並累積履歷實績。
+          </p>
+        </article>
 
-          <div class="campus-detail-box" id="campus-detail-box" aria-live="polite">
-            <!-- Populated by JS -->
+        <article class="program-item reveal">
+          <div class="program-meta">
+            <span>雙語表達力</span>
+            <span>2026.03.18 競賽公告</span>
           </div>
+          <h3 class="program-title">公行系英語簡報競賽</h3>
+          <p class="program-desc">
+            學系每年定期舉辦「英語簡報競賽」（如 114 學年度英語簡報競賽），鼓勵學生以全英語詮釋公共管理議題、設計結構化簡報並接受現場提問。
+          </p>
+          <p class="program-highlight">
+            訓練國際視野與雙語論述能力，讓公共事務人才不只懂台灣制度，也能站上國際對話舞台。
+          </p>
+        </article>
+
+        <article class="program-item reveal">
+          <div class="program-meta">
+            <span>沉浸式教學空間</span>
+            <span>系所專屬設施</span>
+          </div>
+          <h3 class="program-title">專業情境教室</h3>
+          <p class="program-desc">
+            系上建置專屬「情境教室」，模擬議事攻防、政策聽證、跨部門協調會議與危機溝通情境，打破傳統單向聽講的學習模式。
+          </p>
+          <p class="program-highlight">
+            讓高中升大學的同學在安全、擬真的場域中練習主持會議、說服利害關係人與團隊協作。
+          </p>
+        </article>
+
+        <article class="program-item reveal">
+          <div class="program-meta">
+            <span>國際評鑑榮譽</span>
+            <span>2026.03.19 榮譽公告</span>
+          </div>
+          <h3 class="program-title">美國 MSCHE 最高八年期再認證</h3>
+          <p class="program-desc">
+            銘傳大學通過美國中部各州高等教育評審會（MSCHE）最高等級的八年期再認證，公事系在課程設計、學習成效評量與教師教研表現亮眼，領航全國。
+          </p>
+          <p class="program-highlight">
+            象徵學系教學品質與學習成果評估標準與美國高等教育接軌，對未來海外交流或深造極具加分價值。
+          </p>
+        </article>
+
+        <article class="program-item reveal">
+          <div class="program-meta">
+            <span>師資與課程支援</span>
+            <span>專任與兼任實務師資</span>
+          </div>
+          <h3 class="program-title">跨界師資與教研成果</h3>
+          <p class="program-desc">
+            整合專任學者研究能量與具備公私部門實務背景之兼任師資，搭配學術研討會、教師研究成果與學生成果發表平台，以及完善之選課、暑修與法規資源。
+          </p>
+          <p class="program-highlight">
+            從大一基礎法政通識到大四專題實作，每一步都有專任導師與課程地圖支持。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section 3: Five Campuses -->
+    <section id="campuses" aria-labelledby="campuses-heading">
+      <div class="section-head">
+        <p class="section-eyebrow">CAMPUS NETWORK・五大校區完整資訊</p>
+        <h2 class="section-title" id="campuses-heading">橫跨北台、離島與美國密西根的學習版圖</h2>
+        <p class="section-intro">
+          銘傳大學擁有五個各具特色的校區據點，串聯都會行政資源、研究學習環境與跨國交換通道。點選下方校區標籤可快速標記檢視。
+        </p>
+      </div>
+
+      <div class="campus-explorer">
+        <div class="pill-group" role="group" aria-label="校區篩選高亮">
+          <button type="button" class="pill-tab" aria-pressed="true" onclick="highlightCampus('all', this)">顯示全部五大校區</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="highlightCampus('taipei', this)">台北校區</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="highlightCampus('taoyuan', this)">桃園校區</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="highlightCampus('jihe', this)">基河校區</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="highlightCampus('kinmen', this)">金門校區</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="highlightCampus('michigan', this)">美國分校</button>
         </div>
 
-        <div class="campus-cards-list" id="campus-list" role="group" aria-label="校區列表">
-          <!-- Populated by JS -->
+        <div class="campus-grid">
+          <article class="campus-card reveal" data-campus="taipei">
+            <span class="campus-tag">Taipei Campus・都會核心</span>
+            <h3 class="campus-name">台北校區</h3>
+            <p class="campus-detail">臺北市士林區中山北路五段 250 號</p>
+            <p class="campus-detail">250 Zhong Shan N. Rd., Sec. 5, Taipei 111, Taiwan</p>
+            <div class="campus-phone">電話：02-2882-4564</div>
+          </article>
+
+          <article class="campus-card reveal" data-campus="taoyuan">
+            <span class="campus-tag">Taoyuan Campus・大學城環境</span>
+            <h3 class="campus-name">桃園校區</h3>
+            <p class="campus-detail">桃園市龜山區德明路 5 號</p>
+            <p class="campus-detail">5 De Ming Rd., Gui Shan District, Taoyuan City 333, Taiwan</p>
+            <div class="campus-phone">電話：03-350-7001</div>
+          </article>
+
+          <article class="campus-card reveal" data-campus="jihe">
+            <span class="campus-tag">Jihe Campus・進修與在職匯聚</span>
+            <h3 class="campus-name">基河校區</h3>
+            <p class="campus-detail">臺北市士林區基河路 130 號 3–8 樓（行政空間位於 4 樓）</p>
+            <p class="campus-detail">3F-8F, No. 130, Jihe Rd., Shihlin District, Taipei City 111, Taiwan</p>
+            <div class="campus-phone">電話：02-2882-4564</div>
+          </article>
+
+          <article class="campus-card reveal" data-campus="kinmen">
+            <span class="campus-tag">Kinmen Campus・離島與兩岸視角</span>
+            <h3 class="campus-name">金門校區</h3>
+            <p class="campus-detail">金門縣金沙鎮德明路 105 號</p>
+            <p class="campus-detail">105 De Ming Rd., Jinsha Township, Kinmen County 890, Taiwan</p>
+            <div class="campus-phone">電話：082-355-233</div>
+          </article>
+
+          <article class="campus-card reveal" data-campus="michigan">
+            <span class="campus-tag">Michigan Location・海外據點</span>
+            <h3 class="campus-name">美國分校</h3>
+            <p class="campus-detail">Gilbertson Hall, Saginaw Valley State University, 7400 Bay Road, Saginaw, MI 48710 U.S.A.</p>
+            <div class="campus-phone">美國：1-989-964-2497｜台灣：+886 2 2882-4564</div>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Section 4: Interactive FAQ & Live Search -->
-    <section id="faq" class="section-block" aria-labelledby="faq-heading">
-      <div class="section-head">
+    <!-- Section 4: Alumni Network -->
+    <section aria-labelledby="alumni-heading">
+      <div class="alumni-band reveal">
         <div>
-          <span class="chip">即時互動問答</span>
-          <h2 id="faq-heading" class="section-title">
-            高中生最常問的<span class="accent-word">特殊選才</span>與公事系問題
-          </h2>
+          <p class="section-eyebrow">ALUMNI NETWORK・校友網絡與職涯支持</p>
+          <h2 class="section-title" id="alumni-heading">串聯在職碩專與產官學界的校友園區</h2>
+          <p class="section-intro" style="margin-top: var(--space-sm);">
+            公事系透過「校友園區」與「碩士在職專班」累積深厚的人脈網絡。學長姐長期任職於各級政府機關、公共研究智庫、非營利組織及企業公共關係與永續部門，為在校生提供實習引薦、實務講座與職涯諮詢。
+          </p>
         </div>
-        <p class="section-desc">
-          輸入關鍵字（例如：AI、五年一貫、實習、英語、校區、面試、校友）或切換分類，立即找到解答。看到想進一步了解的問題，還能「加入諮詢清單」。
+        <div class="alumni-pillars">
+          <div class="alumni-row">
+            <strong>公部門與政策研究</strong>
+            <span>中央及地方機關・智庫幕僚</span>
+          </div>
+          <div class="alumni-row">
+            <strong>企業永續與公共關係</strong>
+            <span>ESG 治理・企業公關管理</span>
+          </div>
+          <div class="alumni-row">
+            <strong>非營利與社會創新</strong>
+            <span>基金會・社區與倡議組織</span>
+          </div>
+          <div class="alumni-row">
+            <strong>校友園區 × 碩士在職專班</strong>
+            <span>跨屆學長姐實務交流導師網</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive FAQ Search & Explorer -->
+    <section id="faq-section" aria-labelledby="faq-heading">
+      <div class="section-head">
+        <p class="section-eyebrow">INTERACTIVE FAQ・特殊選才互動問答庫</p>
+        <h2 class="section-title" id="faq-heading">常見問題即時搜尋與分類解答</h2>
+        <p class="section-intro">
+          輸入關鍵字（例如「AI」、「五年一貫」、「實習」、「備審」、「MSCHE」）或選擇問題分類，快速找到高中生與家長最關心的升學與就讀資訊。
         </p>
       </div>
 
-      <div class="faq-controls">
+      <div class="faq-controls reveal">
         <div class="search-row">
-          <div class="field-group">
-            <label class="field-label" for="faq-search-input">搜尋常見問題關鍵字</label>
+          <div class="input-field">
+            <label class="input-label" for="faq-search">搜尋常見問題關鍵字</label>
             <input
-              type="search"
-              id="faq-search-input"
+              id="faq-search"
               class="pill-input"
-              placeholder="輸入關鍵字，例如：AI、五年一貫、實習、英語簡報、MSCHE…"
-              oninput="handleFaqSearch(this.value)"
+              type="search"
+              placeholder="輸入關鍵字，例如：AI、五年一貫、實習、英語簡報、校區"
+              oninput="filterFaqs()"
             >
           </div>
-          <button type="button" class="btn btn-tertiary" onclick="clearFaqFilters()">清除篩選</button>
+          <button type="button" class="btn btn-tertiary" onclick="clearFaqSearch()">清除條件</button>
+          <button type="button" class="btn btn-primary" id="toggle-all-btn" onclick="toggleAllFaqs()">全部展開</button>
         </div>
 
-        <div class="pill-tabs" id="faq-cat-tabs" role="group" aria-label="問題分類篩選">
-          <!-- Populated by JS -->
+        <div class="pill-group" role="group" aria-label="熱門關鍵字快速篩選">
+          <span style="font-size: var(--label-size); font-weight: 700; color: var(--on-surface-variant); align-self: center;">熱門關鍵字：</span>
+          <button type="button" class="pill-tab" onclick="quickSearch('備審')">備審與面試</button>
+          <button type="button" class="pill-tab" onclick="quickSearch('AI')">AI 應用</button>
+          <button type="button" class="pill-tab" onclick="quickSearch('五年一貫')">五年一貫</button>
+          <button type="button" class="pill-tab" onclick="quickSearch('實習')">暑期實習</button>
+          <button type="button" class="pill-tab" onclick="quickSearch('英語')">英語簡報</button>
+          <button type="button" class="pill-tab" onclick="quickSearch('MSCHE')">美國 MSCHE 認證</button>
         </div>
 
-        <div class="faq-toolbar">
-          <span class="faq-count" id="faq-result-count">顯示 12 筆常見問題</span>
-          <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center;">
-            <span class="faq-count" id="faq-bookmark-count">已收藏 0 題至 LINE 諮詢清單</span>
-            <button type="button" class="btn btn-tertiary" onclick="toggleAllFaq(true)">全部展開</button>
-            <button type="button" class="btn btn-tertiary" onclick="toggleAllFaq(false)">全部收合</button>
-          </div>
+        <div class="pill-group" role="group" aria-label="問答分類篩選">
+          <button type="button" class="pill-tab" aria-pressed="true" onclick="setFaqCategory('all', this)">全部分類</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="setFaqCategory('admission', this)">特殊選才與備審</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="setFaqCategory('curriculum', this)">AI 治理與情境教室</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="setFaqCategory('programs', this)">五年一貫・實習・認證</button>
+          <button type="button" class="pill-tab" aria-pressed="false" onclick="setFaqCategory('campus', this)">校區・校友與諮詢</button>
+        </div>
+
+        <div class="faq-status-bar">
+          <span id="faq-count">顯示 10 / 10 則問答</span>
+          <span>點擊任一題目即可展開完整解答</span>
         </div>
       </div>
 
-      <div class="faq-list" id="faq-list" aria-live="polite">
-        <!-- Populated by JS -->
-      </div>
+      <div class="faq-list" id="faq-list" aria-live="polite"></div>
     </section>
 
-    <!-- Section 5: LINE 1-on-1 Consultation & QR Code -->
-    <section id="line-consult" class="section-block" aria-labelledby="line-heading">
+    <!-- Section 6: LINE Consultation Hub & QR Code -->
+    <section id="line-consult" aria-labelledby="line-heading">
       <div class="section-head">
-        <div>
-          <span class="chip">一對一升學諮詢</span>
-          <h2 id="line-heading" class="section-title">
-            掃描 QR Code 加入 <span class="accent-word">LINE</span>，直接聊聊你的備審與想法
-          </h2>
-        </div>
-        <p class="section-desc">
-          還有針對個人經歷、特殊選才準備方向或修課規劃的疑問嗎？直接掃描下方專用 QR Code 加入一對一 LINE 諮詢，也可以先用右側工具組裝第一則招呼訊息！
+        <p class="section-eyebrow">DIRECT CONSULTATION・LINE 互動諮詢專區</p>
+        <h2 class="section-title" id="line-heading">加入銘傳公事系特殊選才 LINE 諮詢群組</h2>
+        <p class="section-intro">
+          對備審資料方向、面試準備或系所資源還有個別疑問嗎？歡迎高中同學與家長直接掃描 QR Code 或複製專屬連結加入群組發問。
         </p>
       </div>
 
-      <div class="line-hub">
-        <aside class="qr-card">
-          <span class="stamp-kicker" style="margin-bottom: 0;">116 學年度高中生專用諮詢</span>
-          <h3 class="pillar-title">掃描加入 LINE 官方諮詢帳號</h3>
-
-          <div class="qr-frame">
-            <img
-              id="line-qr-img"
-              src="116_高中生__Line諮詢.jpg"
-              alt="116 學年度銘傳大學公事系高中生特殊選才 LINE 諮詢 QR Code"
-              onerror="handleQrFallback(this)"
-            >
-            <div id="qr-fallback" class="qr-fallback">
-              <svg viewBox="0 0 120 120" width="140" height="140" aria-hidden="true">
-                <rect x="4" y="4" width="112" height="112" rx="12" fill="var(--background)" stroke="var(--outline)" stroke-width="3"/>
-                <rect x="16" y="16" width="30" height="30" rx="4" fill="none" stroke="var(--primary)" stroke-width="5"/>
-                <rect x="25" y="25" width="12" height="12" fill="var(--on-surface)"/>
-                <rect x="74" y="16" width="30" height="30" rx="4" fill="none" stroke="var(--primary)" stroke-width="5"/>
-                <rect x="83" y="25" width="12" height="12" fill="var(--on-surface)"/>
-                <rect x="16" y="74" width="30" height="30" rx="4" fill="none" stroke="var(--primary)" stroke-width="5"/>
-                <rect x="25" y="83" width="12" height="12" fill="var(--on-surface)"/>
-                <rect x="56" y="22" width="8" height="8" fill="var(--on-surface)"/>
-                <rect x="56" y="40" width="8" height="14" fill="var(--secondary)"/>
-                <rect x="22" y="56" width="16" height="8" fill="var(--on-surface)"/>
-                <rect x="48" y="56" width="22" height="10" fill="var(--primary)"/>
-                <rect x="78" y="56" width="12" height="8" fill="var(--on-surface)"/>
-                <rect x="58" y="76" width="12" height="12" fill="var(--on-surface)"/>
-                <rect x="78" y="74" width="24" height="10" fill="var(--secondary)"/>
-                <rect x="76" y="92" width="12" height="12" fill="var(--on-surface)"/>
-                <rect x="94" y="92" width="10" height="10" fill="var(--primary)"/>
-              </svg>
-              <strong style="font-size: 0.95rem; color: var(--on-surface);">來源圖檔：116_高中生__Line諮詢.jpg</strong>
-              <span style="font-size: 0.85rem; color: var(--on-surface-variant); line-height: 1.45;">
-                本區已預留嵌入「116_高中生__Line諮詢.jpg」QR Code 圖檔；請於同目錄部署圖檔後直接以手機 LINE 掃描加入。
-              </span>
-            </div>
+      <div class="line-consult-card reveal">
+        <div class="line-info">
+          <div>
+            <span class="chip">即時互動・一對一指引</span>
           </div>
-
-          <div style="text-align: left; width: 100%; display: flex; flex-direction: column; gap: var(--space-xs); font-size: 0.95rem;">
-            <strong>三步驟開啟一對一諮詢：</strong>
-            <span>1. 開啟手機 LINE「加入好友 → 行動條碼」掃描上方圖卡。</span>
-            <span>2. 傳送你的年級、感興趣的主題或特殊經歷（可用右側產生器一鍵複製）。</span>
-            <span>3. 收到回覆後，即可預約或進行線上一對一升學與備審對談。</span>
-          </div>
-        </aside>
-
-        <div class="composer-card">
-          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--space-sm);">
-            <h3 class="pillar-title">LINE 諮詢開場訊息產生器</h3>
-            <span class="chip">自動帶入你的盤點與收藏</span>
-          </div>
-          <p style="margin: 0; color: var(--on-surface-variant); font-size: 0.95rem;">
-            不確定加入 LINE 後第一句要問什麼嗎？選擇你的身分與最關心的方向，就能自動產生禮貌又清楚的提問草稿，還可自由編修。
+          <h3 style="font-family: var(--font-headline); font-weight: 700; font-size: var(--subhead-size); margin: 0;">
+            專屬 LINE 諮詢群組連結
+          </h3>
+          <p style="margin: 0; max-width: 58ch;">
+            請使用手機掃描右側 QR Code，或複製下方群組連結於手機瀏覽器 / LINE 開啟加入。若在嵌入式預覽環境無法直接跳轉，一鍵複製連結後貼上即可加入。
           </p>
 
-          <div class="composer-grid">
-            <div class="field-group">
-              <label class="field-label" for="student-role-select">目前年級／身分</label>
-              <select id="student-role-select" class="pill-select" onchange="updateConsultDraft()">
-                <option value="高三應屆準備特殊選才同學">高三應屆・準備特殊選才</option>
-                <option value="高一／高二提前探索公事系同學">高一／高二・提前探索升學</option>
-                <option value="關心升學資訊的高中家長">高中生家長・代為諮詢了解</option>
-              </select>
+          <div class="line-url-box">
+            <span class="line-url-text" id="line-url-display">https://line.me/R/ti/g/nzWC2Nn4As</span>
+            <button type="button" class="btn btn-primary" onclick="copyLineUrl()">
+              <i data-lucide="copy" width="16" height="16" aria-hidden="true"></i>
+              複製 LINE 連結
+            </button>
+          </div>
+          <p class="copy-feedback" id="line-copy-feedback" role="status" aria-live="polite"></p>
+
+          <!-- Question Draft Builder -->
+          <div class="draft-box">
+            <label class="input-label" for="question-draft">發問前小幫手：編輯你想在 LINE 群組詢問的問題草稿</label>
+            <div class="pill-group" role="group" aria-label="快速套用發問模板">
+              <button type="button" class="pill-tab" onclick="fillDraft('portfolio')">問備審與特選資格</button>
+              <button type="button" class="pill-tab" onclick="fillDraft('fiveyear')">問五年一貫與實習</button>
+              <button type="button" class="pill-tab" onclick="fillDraft('ai')">問 AI 課程與情境教室</button>
             </div>
-
-            <div class="field-group">
-              <label class="field-label" for="consult-topic-select">最想了解的重點</label>
-              <select id="consult-topic-select" class="pill-select" onchange="updateConsultDraft()">
-                <option value="特殊選才審查資料與面試準備方向">特殊選才備審與面試方向</option>
-                <option value="公共治理與 AI 應用課程特色">公共治理 × AI 應用課程</option>
-                <option value="五年一貫學碩士專案與暑期實習">五年一貫與暑期實習制度</option>
-                <option value="英語簡報競賽、情境教室與 MSCHE 認證">情境教室・雙語與國際認證</option>
-                <option value="五大校區上課分布與校友出路">校區分布與校友發展網絡</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="field-group">
-            <label class="field-label" for="student-name-input">稱呼或就讀學校（選填，例如：陳同學／桃園某高中）</label>
-            <input
-              type="text"
-              id="student-name-input"
-              class="pill-input"
-              placeholder="輸入你想讓老師或助教怎麼稱呼你…"
-              oninput="updateConsultDraft()"
-            >
-          </div>
-
-          <div class="saved-badge-row" id="composer-saved-summary">
-            <span class="faq-count">目前尚未帶入經歷盤點或收藏問題（可至上方勾選或直接填寫）。</span>
-          </div>
-
-          <div class="field-group">
-            <label class="field-label" for="consult-draft-textarea">預覽與編輯你要傳送的 LINE 諮詢訊息</label>
             <textarea
-              id="consult-draft-textarea"
-              class="leaf-textarea"
-              oninput="handleManualDraftEdit(this.value)"
+              id="question-draft"
+              class="draft-textarea"
+              placeholder="可點選上方按鈕快速套用問題格式，或自行輸入想詢問公事系老師的問題…"
             ></textarea>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); align-items: center;">
+              <button type="button" class="btn btn-secondary" onclick="copyQuestionDraft()">
+                <i data-lucide="clipboard-check" width="16" height="16" aria-hidden="true"></i>
+                複製提問草稿
+              </button>
+              <span id="draft-copy-feedback" style="font-size: var(--label-size); font-weight: 700; color: var(--primary);" role="status" aria-live="polite"></span>
+            </div>
           </div>
+        </div>
 
-          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm);">
-            <button type="button" class="btn btn-primary" onclick="copyConsultDraft()">
-              <i data-lucide="copy" aria-hidden="true"></i>
-              <span>一鍵複製諮詢訊息</span>
-            </button>
-            <button type="button" class="btn btn-secondary" onclick="regenerateConsultDraft()">
-              <i data-lucide="refresh-cw" aria-hidden="true"></i>
-              <span>重新整理草稿</span>
-            </button>
-            <button type="button" class="btn btn-tertiary" onclick="clearSavedWorkspace(this)">清空個人暫存</button>
-            <span id="copy-status-banner" class="status-banner" hidden role="status"></span>
-          </div>
+        <div class="qr-panel">
+          <div class="qr-frame" id="qr-container" aria-label="LINE 諮詢群組 QR Code"></div>
+          <p class="qr-caption">掃描 QR Code 加入 LINE 諮詢群組</p>
+          <p class="qr-sub">對應連結：https://line.me/R/ti/g/nzWC2Nn4As</p>
+          <p class="qr-sub">建議以手機相機或 LINE「加入好友」掃描器開啟</p>
         </div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <div>
-        <strong>銘傳大學公共事務與行政管理學系｜特殊選才互動諮詢與問答</strong><br>
-        <span>規劃：劉祥得｜資料來源：銘傳大學公共事務與行政管理學系網站資訊（pa.mcu.edu.tw）及「116_高中生__Line諮詢.jpg」。</span>
+        <strong>劉祥得規劃</strong>｜銘傳大學公共事務與行政管理學系特殊選才互動諮詢網頁
       </div>
       <div>
-        <span>所有進度（經歷盤點、FAQ 收藏、諮詢草稿）皆支援自動暫存，方便隨時回來繼續準備。</span>
+        資料整理來源：銘傳大學公共事務與行政管理學系官方公告與系所概況資訊（114–115 學年度公開資訊）
       </div>
     </footer>
+
   </div>
 
-  <api-shim></api-shim>
   <script>
-    const TRAITS_DATA = [
-      { id: `student_gov`, label: `學生自治／班聯會／社團幹部`, weights: { gov: 25, ai: 0, social: 15, lead: 35 } },
-      { id: `ai_tools`, label: `AI 工具應用／數據與專題分析`, weights: { gov: 10, ai: 45, social: 10, lead: 10 } },
-      { id: `volunteer`, label: `志工服務／社區營造／地方創生`, weights: { gov: 20, ai: 0, social: 45, lead: 15 } },
-      { id: `mun_policy`, label: `模擬聯合國／公民議題探究與提案`, weights: { gov: 40, ai: 5, social: 15, lead: 25 } },
-      { id: `presentation`, label: `英語簡報／辯論／跨校專題發表`, weights: { gov: 15, ai: 10, social: 10, lead: 35 } },
-      { id: `digital_civic`, label: `數位公民專案／社群媒體公共倡議`, weights: { gov: 20, ai: 35, social: 25, lead: 15 } },
-      { id: `field_study`, label: `田野調查／非營利組織訪談與實作`, weights: { gov: 25, ai: 10, social: 40, lead: 10 } },
-      { id: `event_lead`, label: `大型校園活動／營隊籌備總召`, weights: { gov: 10, ai: 5, social: 20, lead: 40 } }
-    ];
-
-    const PROGRAM_CARDS = null; // Filtered via DOM attributes
-
-    const CAMPUSES_DATA = [
-      {
-        id: `taipei`,
-        name: `台北校區`,
-        enName: `Taipei Campus`,
-        region: `臺北市士林區`,
-        addressZh: `臺北市中山北路五段250號`,
-        addressEn: `250 Zhong Shan N. Rd., Sec. 5, Taipei 111, Taiwan`,
-        phone: `02-2882-4564`,
-        note: `捷運劍潭站步行可達，連結雙北行政機關、研討會與城市公共事務資源。`
+    // =========================================================================
+    // 1. High School Experience Mapper Data
+    // =========================================================================
+    const experienceMap = {
+      council: {
+        heading: `學生自治與社團幹部經驗 → 展現「公共治理 × 青年領導力」`,
+        desc: `你在校內處理班聯會提案、協調社團預算或溝通師生意見的歷程，正是微型的「公共決策與行政管理」。備審資料建議具體寫出：當時面對什麼衝突或資源限制、你如何收集意見並促成共識，以及事後如何檢討改進。`,
+        focus: `結合情境教室與團隊治理專案`,
+        tip: `面試時可主動分享你對校園或地方公共事務的觀察，並說明想如何運用系上情境教室演練跨部門協調與政策溝通。`
       },
-      {
-        id: `taoyuan`,
-        name: `桃園校區`,
-        enName: `Taoyuan Campus`,
-        region: `桃園市龜山區`,
-        addressZh: `桃園市龜山區德明路5號`,
-        addressEn: `5 De Ming Rd., Gui Shan District, Taoyuan City 333, Taiwan`,
-        phone: `03-350-7001`,
-        note: `校園環境開闊，系所課程、情境教室與學生跨院學習活動之核心基地。`
+      service: {
+        heading: `志工服務與社區環保行動 → 展現「社會實踐 × 公共治理」`,
+        desc: `長期參與社區關懷、偏鄉服務或永續行動的高中生，具備難得的現場觀察力。別只列出服務時數，更要分析你觀察到的社會需求、現行制度不足之處，以及公部門或 NGO 可以如何協力改善。`,
+        focus: `對應暑期實務實習與 NGO 合作`,
+        tip: `可提前了解公事系暑期「自行申請實習機構」制度，說明未來想在大學階段投入哪一類公共議題或非營利組織實習。`
       },
-      {
-        id: `jihe`,
-        name: `基河校區`,
-        enName: `Jihe Campus`,
-        region: `臺北市士林區`,
-        addressZh: `臺北市基河路130號4樓`,
-        addressEn: `3F-8F, No.130, Jihe Rd., Shihlin District, Taipei City 111, Taiwan`,
-        phone: `02-2882-4564`,
-        note: `鄰近士林商圈與交通樞紐，支援在職進修、推廣課程與都會講座活動。`
+      research: {
+        heading: `小論文與資訊探究專題 → 展現「AI 應用 × 公共治理」`,
+        desc: `若你曾做過社會科探究實作、問卷統計、資料視覺化或 AI 工具應用專題，這正符合當代數位治理趨勢！請強調你如何用數據或 AI 協助釐清公共問題，並反思資訊倫理與公平性。`,
+        focus: `結合五年一貫與教師研究能量`,
+        tip: `面試時可展現資料判讀與邏輯思考優勢，並表達對「五年一貫學碩士專案」深入政策研究與數位行政的興趣。`
       },
-      {
-        id: `kinmen`,
-        name: `金門校區`,
-        enName: `Kinmen Campus`,
-        region: `金門縣金沙鎮`,
-        addressZh: `金門縣金沙鎮德明路105號`,
-        addressEn: `105 De Ming Rd., Jinsha Township, Kinmen County 890, Taiwan`,
-        phone: `082-355-233`,
-        note: `離島特色基地，提供跨地域地方治理、觀光公共事務與離島發展觀察視野。`
-      },
-      {
-        id: `usa`,
-        name: `美國分校（密西根）`,
-        enName: `Michigan Location`,
-        region: `U.S.A.`,
-        addressZh: `Gilbertson Hall, Saginaw Valley State University, 7400 Bay Road, Saginaw, MI 48710 U.S.A.`,
-        addressEn: `Gilbertson Hall, Saginaw Valley State University, 7400 Bay Road, Saginaw, MI 48710 U.S.A.`,
-        phone: `美國 1-989-964-2497 ｜ 臺灣 +886 2 2882-4564`,
-        note: `設置於美國薩吉諾谷州立大學校園內，展現銘傳跨國辦學與美國 MSCHE 認證接軌實力。`
+      speech: {
+        heading: `辯論與英語簡報競賽經驗 → 展現「青年領導力 × 雙語表達」`,
+        desc: `公共事務的核心之一是說服與對話。參加過辯論社、模擬聯合國或英語演講簡報競賽的同學，擁有強大的議題拆解與台風優勢，請附上簡報架構圖或比賽反思紀錄。`,
+        focus: `銜接公行系英語簡報競賽與 MSCHE 國際標準`,
+        tip: `可強調你對銘傳大學通過美國 MSCHE 八年期再認證的肯定，以及未來想參與公行系英語簡報競賽的明確目標。`
       }
-    ];
+    };
 
-    const FAQ_CATEGORIES = [
-      { id: `all`, label: `全部問題` },
-      { id: `admission`, label: `特殊選才與備審` },
-      { id: `pillars`, label: `AI 與四大亮點` },
-      { id: `program`, label: `五年一貫與實習` },
-      { id: `global`, label: `雙語・情境教室・MSCHE` },
-      { id: `campus`, label: `校區與校友網絡` }
-    ];
+    function selectExperience(key, btnEl) {
+      const data = experienceMap[key];
+      if (!data) return;
 
-    const FAQ_DATA = [
+      const group = btnEl ? btnEl.parentElement : null;
+      if (group) {
+        group.querySelectorAll('.pill-tab').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', 'false');
+        });
+      }
+      if (btnEl) btnEl.setAttribute('aria-pressed', 'true');
+
+      const headingEl = document.getElementById('mapper-heading');
+      const descEl = document.getElementById('mapper-desc');
+      const focusEl = document.getElementById('mapper-focus');
+      const tipEl = document.getElementById('mapper-tip');
+      if (headingEl) headingEl.textContent = data.heading;
+      if (descEl) descEl.textContent = data.desc;
+      if (focusEl) focusEl.textContent = data.focus;
+      if (tipEl) tipEl.textContent = data.tip;
+    }
+
+    // =========================================================================
+    // 2. Campus Highlighter
+    // =========================================================================
+    function highlightCampus(target, btnEl) {
+      const group = btnEl ? btnEl.parentElement : null;
+      if (group) {
+        group.querySelectorAll('.pill-tab').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', 'false');
+        });
+      }
+      if (btnEl) btnEl.setAttribute('aria-pressed', 'true');
+
+      document.querySelectorAll('.campus-card').forEach(function (card) {
+        const campus = card.getAttribute('data-campus');
+        if (target === 'all') {
+          card.classList.remove('is-highlighted');
+        } else if (campus === target) {
+          card.classList.add('is-highlighted');
+        } else {
+          card.classList.remove('is-highlighted');
+        }
+      });
+    }
+
+    // =========================================================================
+    // 3. Interactive FAQ Data & Search/Filter Engine
+    // =========================================================================
+    const faqItems = [
       {
         id: `faq-1`,
         category: `admission`,
         categoryLabel: `特殊選才與備審`,
-        q: `我沒有國手級競賽獎牌，只有社團幹部、志工或專題經驗，適合申請公事系特殊選才嗎？`,
-        a: `非常適合！公事系看重的不只是單一大型比賽獎狀，而是你在公共治理、AI 應用、社會實踐與青年領導力上的「真實投入與思考深度」。只要能具體說明你觀察到什麼問題、採取了什麼行動、用過哪些工具（包含數位或 AI 工具）以及最後的反思與成長，都是極具說服力的特殊選才故事。`,
-        tags: [`特殊選才`, `社團`, `志工`, `備審`]
+        question: `銘傳公事系特殊選才看重高中生哪些特質與經歷？`,
+        answer: `公事系特殊選才強調「公共治理 × AI 應用 × 社會實踐 × 青年領導力」四大核心亮點。不論你是學生會或社團幹部、長期志工與社區行動者、擅長小論文與數位工具/AI 探究的同學，或是具備辯論與英語簡報專長，只要能清楚呈現「觀察問題 → 採取行動 → 反思成長」的脈絡，都是學系非常歡迎的潛力人才。`,
+        keywords: `特殊選才 資格 特質 備審 面試 公共治理 AI 社會實踐 領導力`
       },
       {
         id: `faq-2`,
         category: `admission`,
         categoryLabel: `特殊選才與備審`,
-        q: `高中讀自然組或資工／商管群科，沒有政治或公民底子，可以跨領域來念嗎？`,
-        a: `完全可以！現代公共事務與行政管理非常歡迎跨領域人才。如果你原本熟悉數據分析、程式設計、AI 應用、企劃管理或設計思考，進入公事系後反而能為政策分析與智慧治理帶來新視角，系上完整的大一到大四課程規劃會一步步帶你建立法政與公共管理基礎。`,
-        tags: [`跨領域`, `自然組`, `課程規劃`]
+        question: `沒有得過全國性大獎，只參加校內社團或地方志工可以報名嗎？`,
+        answer: `可以！特殊選才重視經歷的「真實性與深度」，而非只看獎狀數量。如果你能把校內自治組織提案、社區服務觀察或個人關注的公共議題整理成具體案例，說明自己如何解決現場問題、發揮影響力，並與公事系課程資源連結，同樣能在審查與面試中脫穎而出。`,
+        keywords: `社團 志工 獎狀 備審資料 面試 經歷 校內`
       },
       {
         id: `faq-3`,
-        category: `pillars`,
-        categoryLabel: `AI 與四大亮點`,
-        q: `公事系跟「AI 應用」有什麼關係？不寫程式也能學嗎？`,
-        a: `公共治理需要處理大量民意資料、法規文本、預算分析與跨部門協作。系上強調的是「把 AI 當作公共事務的決策與溝通助手」——包含如何用生成式 AI 輔助政策研究、進行議題資料整理與數位治理評估，同時思辨 AI 倫理與資料隱私，就算沒有深厚程式背景也能循序上手。`,
-        tags: [`AI 應用`, `數位治理`, `公共治理`]
+        category: `curriculum`,
+        categoryLabel: `AI 治理與情境教室`,
+        question: `公共事務與行政管理學系如何結合「AI 應用」？文組高中生會不會跟不上？`,
+        answer: `完全不用擔心！公事系的 AI 應用聚焦在「問題導向與政策應用」，而非要求高中就先學會深奧程式開發。課程引導同學運用生成式 AI、資料視覺化與數位分析工具來整理政策文本、分析民意趨勢及優化行政流程，讓社會組背景的同學也能成為具備數位素養的現代公共管理者。`,
+        keywords: `AI 應用 文組 社會組 數位治理 程式 資料分析 課程`
       },
       {
         id: `faq-4`,
-        category: `pillars`,
-        categoryLabel: `AI 與四大亮點`,
-        q: `特殊選才四大核心亮點（公共治理 × AI 應用 × 社會實踐 × 青年領導力），在備審資料要四項全包嗎？`,
-        a: `不需要平均用力！建議從最能代表你的一到兩個亮點當作「主軸」，再補充跨界連結。例如：你帶社團辦過公益市集（青年領導力＋社會實踐），過程中用問卷數據與 AI 工具分析參與回饋（AI 應用），進而提出改進建議（公共治理），串成一條有邏輯的行動線就非常亮眼。`,
-        tags: [`四大亮點`, `備審策略`, `社會實踐`, `青年領導力`]
+        category: `curriculum`,
+        categoryLabel: `AI 治理與情境教室`,
+        question: `系上的「情境教室」是什麼？上課方式跟一般教室有什麼不同？`,
+        answer: `情境教室是系上專為公共事務模擬教學打造的空間。在這裡不只是聽老師講課，而是透過政策聽證會、議事協商、危機處理與專案簡報等實戰演練，讓學生親身扮演決策者、民意代表或公民團體角色，訓練臨場反應、口語表達與跨立場溝通力。`,
+        keywords: `情境教室 設備 模擬 議事 危機處理 演練 教學`
       },
       {
         id: `faq-5`,
-        category: `program`,
-        categoryLabel: `五年一貫與實習`,
-        q: `什麼是「五年一貫學碩士專案」？要怎麼提前卡位碩士生？`,
-        a: `依據系上「五年一貫！提前卡位碩士生」制度，優秀的大學部同學在學期間達到申請條件並通過審查後，即可具備碩士班預研生資格，於大四階段提前修讀碩士班課程並依規定抵免學分，最快五年（4+1）就能同時取得學士與碩士學位，比一般升學節省一年時間。`,
-        tags: [`五年一貫`, `碩士`, `4+1`]
+        category: `programs`,
+        categoryLabel: `五年一貫・實習・認證`,
+        question: `什麼是「五年一貫！提前卡位碩士生」專案？對高中生有什麼好處？`,
+        answer: `依據本系 2026 年 4 月 24 日最新公告，「五年一貫」讓表現優秀或對公共事務研究有熱忱的大學部學生，最快可於大學期間提前申請並預修碩士班課程，五年內同時取得學士與碩士學位。這能幫助同學節省一年時間成本，更早完成高階政策分析或公職與管理職涯的專業裝備。`,
+        keywords: `五年一貫 碩士 學碩士 提前 研究所 4+1 升學`
       },
       {
         id: `faq-6`,
-        category: `program`,
-        categoryLabel: `五年一貫與實習`,
-        q: `暑期實務實習一定要等學校分發嗎？可以自己找想去的單位嗎？`,
-        a: `很有彈性！依據系上 115 年暑假實習公告機制，除了透過系上合作資源媒合外，也明確開放同學「自行申請實習機構」，只要依規定時程提出申請與審核，就能前往心儀的政府機關、非營利組織、智庫或企業公共事務部門實習。`,
-        tags: [`暑期實習`, `自行申請`, `職場銜接`]
+        category: `programs`,
+        categoryLabel: `五年一貫・實習・認證`,
+        question: `大學期間有哪些實習機會？「自行申請實習機構」是什麼？`,
+        answer: `系上安排暑期實務實習，協助學生進入公部門、民意機關、研究機構、非營利組織或企業公共事務部門見習。依 115 年暑假實習公告，除了系上媒合名單外，也開放同學依自身職涯規劃「自行申請實習機構」，經審核後即可將實習經驗納入學分與學習歷程。`,
+        keywords: `暑假實習 暑期實務實習 自行申請 機構 職場 實務`
       },
       {
         id: `faq-7`,
-        category: `global`,
-        categoryLabel: `雙語・情境教室・MSCHE`,
-        q: `我英文口說還不夠流利，去參加系上的「英語簡報競賽」會不會壓力很大？`,
-        a: `英語簡報競賽的設計初衷是鼓勵同學「勇敢開口表達公共觀點」，而不是單純比英文背誦。系上有專屬指導與準備期間，幫助同學把複雜的政策與社會議題轉化為簡潔有力的英語投影片與故事架構，從小步試煉中累積跨文化自信。`,
-        tags: [`英語簡報競賽`, `雙語`, `表達能力`]
+        category: `programs`,
+        categoryLabel: `五年一貫・實習・認證`,
+        question: `「公行系英語簡報競賽」一定要英文非常流利才能參加嗎？`,
+        answer: `英語簡報競賽（如 114 學年度公行系英語簡報競賽）的目的正是鼓勵學生勇敢跨出舒適圈，用英語練習條理分明地表達公共議題觀點。系上重視的是簡報邏輯、議題洞察與台風訓練，參賽本身就是極佳的實戰練兵機會，能為未來出國交流或外商、國際組織職涯累積信心。`,
+        keywords: `英語簡報 競賽 英文 雙語 國際 簡報`
       },
       {
         id: `faq-8`,
-        category: `global`,
-        categoryLabel: `雙語・情境教室・MSCHE`,
-        q: `系上的「情境教室」跟一般教室有什麼不一樣？會在裡面做什麼？`,
-        a: `情境教室是專為公共事務實戰演練打造的空間，結合系所課程規劃與專兼任教師指導，讓同學進行模擬會議、政策辯論、議事攻防、專案發表與小組協作演練，把「只看課本」變成「在情境現場解決問題」。`,
-        tags: [`情境教室`, `模擬會議`, `實務演練`]
+        category: `programs`,
+        categoryLabel: `五年一貫・實習・認證`,
+        question: `銘傳大學榮獲「美國 MSCHE 最高八年期再認證」代表什麼意義？`,
+        answer: `美國中部各州高等教育評審會（MSCHE）是具國際權威的高等教育評鑑機構。2026 年 3 月公告銘傳大學獲得最高規格「八年期再認證」，且公事系在學習成果與品質保證表現亮眼、領航全國。對學生而言，這代表你在銘傳修讀的課程制度、學分品質與評量標準符合美國高教國際基準，未來申請海外交換或國外研究所更具公信力。`,
+        keywords: `MSCHE 美國 認證 八年期 國際 高等教育 評鑑`
       },
       {
         id: `faq-9`,
-        category: `global`,
-        categoryLabel: `雙語・情境教室・MSCHE`,
-        q: `「美國 MSCHE 最高八年期再認證」對高中生選大學有什麼實際意義？`,
-        a: `MSCHE（美國中部各州高等教育評審會）是極具權威的美國高教認證機構。銘傳大學榮獲最高八年期再認證，且公事系在評鑑中表現亮眼，代表系上的教學目標、課程設計與學習成果檢核都符合國際嚴謹標準，無論未來想申請國外交換、研究所或跨國求職，學歷品質都更有保障。`,
-        tags: [`MSCHE`, `八年期認證`, `國際認證`]
+        category: `campus`,
+        categoryLabel: `校區・校友與諮詢`,
+        question: `銘傳大學五大校區分別在哪裡？學習與聯絡資源如何串聯？`,
+        answer: `銘傳大學共有五大校區：台北校區（臺北市中山北路五段 250 號）、桃園校區（桃園市龜山區德明路 5 號）、基河校區（臺北市基河路 130 號 3–8 樓）、金門校區（金門縣金沙鎮德明路 105 號），以及美國密西根分校（Saginaw Valley State University 校內 Gilbertson Hall）。各校區彼此串聯教學、進修與國際交換資源，並可透過專線電話即時聯繫。`,
+        keywords: `校區 台北 桃園 基河 金門 美國分校 密西根 地址 電話`
       },
       {
         id: `faq-10`,
         category: `campus`,
-        categoryLabel: `校區與校友網絡`,
-        q: `銘傳有台北、桃園、基河、金門與美國分校五大校區，各自有什麼特色與聯絡方式？`,
-        a: `銘傳具備跨地域五大校區：台北校區（中山北路五段250號，02-2882-4564）、桃園校區（龜山區德明路5號，03-350-7001）、基河校區（基河路130號4樓，02-2882-4564）、金門校區（金沙鎮德明路105號，082-355-233），以及美國密西根分校（Saginaw Valley State University 校區內，1-989-964-2497）。多元校區讓課程活動、研討會與跨文化學習更具彈性。`,
-        tags: [`五大校區`, `台北`, `桃園`, `基河`, `金門`, `美國分校`]
-      },
-      {
-        id: `faq-11`,
-        category: `campus`,
-        categoryLabel: `校區與校友網絡`,
-        q: `公事系畢業後只能考公務員嗎？校友網絡都在哪些領域發展？`,
-        a: `當然不限於公職！透過系上「校友園區」累積的跨屆人脈，公事系畢業生除了在中央與地方政府行政體系擔任骨幹外，也廣泛投入政策研究機構、民意代表辦公室幕僚、NPO 非營利組織專案管理、企業公關、政府事務（GR）以及 ESG 永續發展領域。`,
-        tags: [`校友網絡`, `職涯出路`, `公務員`, `ESG`]
-      },
-      {
-        id: `faq-12`,
-        category: `admission`,
-        categoryLabel: `特殊選才與備審`,
-        q: `如果我想詢問自己特定經歷適不適合放進特殊選才備審，怎麼找人問最準？`,
-        a: `最直接的方式就是捲動到下方的「LINE 一對一諮詢專區」，用手機掃描「116_高中生__Line諮詢.jpg」QR Code 加入好友，並使用網頁提供的訊息產生器整理你的年級與經歷重點發送詢問，就能獲得最貼近 116 學年度準備需求的建議！`,
-        tags: [`LINE 諮詢`, `QR Code`, `116_高中生__Line諮詢.jpg`]
+        categoryLabel: `校區・校友與諮詢`,
+        question: `畢業後的出路與校友網絡有哪些？還有問題可以去哪裡問？`,
+        answer: `公事系培養的治理、分析與協調力可廣泛應用於各級公職、政府專案與政策智庫、企業永續（ESG）與公共關係部門，以及非營利與社會企業組織。系上建有「校友園區」並透過碩士在職專班串聯產官學界學長姐資源。若想進一步詢問特殊選才細節，歡迎直接掃描下方 QR Code 或複製連結加入 LINE 諮詢群組！`,
+        keywords: `出路 校友 校友園區 就業 公職 ESG 智庫 LINE 諮詢`
       }
     ];
 
-    const appState = {
-      selectedTraits: [],
-      activeProgramCat: `all`,
-      activeCampusId: `taipei`,
-      faqQuery: ``,
-      faqCategory: `all`,
-      expandedFaqs: [`faq-1`, `faq-3`],
-      bookmarkedFaqs: [],
-      studentRole: `高三應屆準備特殊選才同學`,
-      consultTopic: `特殊選才審查資料與面試準備方向`,
-      studentName: ``,
-      customDraft: null
-    };
-
-    function renderTraits() {
-      const grid = document.getElementById(`trait-grid`);
-      if (!grid) return;
-      grid.innerHTML = TRAITS_DATA.map((trait) => {
-        const isSelected = appState.selectedTraits.includes(trait.id);
-        return `
-          <button
-            type="button"
-            class="trait-btn"
-            aria-pressed="${isSelected ? `true` : `false`}"
-            onclick="toggleTrait('${trait.id}')"
-          >
-            <i data-lucide="${isSelected ? `check-circle-2` : `circle`}" aria-hidden="true"></i>
-            <span>${trait.label}</span>
-          </button>
-        `;
-      }).join(``);
-      if (window.lucide && typeof window.lucide.createIcons === `function`) {
-        window.lucide.createIcons();
-      }
-      updateMatcherSummary();
-    }
-
-    function computeTraitScores() {
-      const totals = { gov: 0, ai: 0, social: 0, lead: 0 };
-      appState.selectedTraits.forEach((id) => {
-        const item = TRAITS_DATA.find((t) => t.id === id);
-        if (!item) return;
-        totals.gov += item.weights.gov;
-        totals.ai += item.weights.ai;
-        totals.social += item.weights.social;
-        totals.lead += item.weights.lead;
-      });
-      return {
-        gov: Math.min(100, totals.gov),
-        ai: Math.min(100, totals.ai),
-        social: Math.min(100, totals.social),
-        lead: Math.min(100, totals.lead)
-      };
-    }
-
-    function updateMatcherSummary() {
-      const countEl = document.getElementById(`trait-selected-count`);
-      if (countEl) {
-        countEl.textContent = `已勾選 ${appState.selectedTraits.length} 項經歷`;
-      }
-
-      const scores = computeTraitScores();
-      const mapBars = [
-        { key: `gov`, scoreId: `score-gov`, barId: `bar-gov`, name: `公共治理` },
-        { key: `ai`, scoreId: `score-ai`, barId: `bar-ai`, name: `AI 應用` },
-        { key: `social`, scoreId: `score-social`, barId: `bar-social`, name: `社會實踐` },
-        { key: `lead`, scoreId: `score-lead`, barId: `bar-lead`, name: `青年領導力` }
-      ];
-
-      let topPillar = null;
-      let topVal = 0;
-
-      mapBars.forEach((m) => {
-        const val = scores[m.key];
-        const sEl = document.getElementById(m.scoreId);
-        const bEl = document.getElementById(m.barId);
-        if (sEl) sEl.textContent = `${val}%`;
-        if (bEl) bEl.style.width = `${val}%`;
-        if (val > topVal) {
-          topVal = val;
-          topPillar = m.name;
-        }
-      });
-
-      const badgeEl = document.getElementById(`matcher-top-badge`);
-      const adviceEl = document.getElementById(`matcher-advice`);
-
-      if (appState.selectedTraits.length === 0) {
-        if (badgeEl) badgeEl.textContent = `等待勾選`;
-        if (adviceEl) {
-          adviceEl.textContent = `先在左側點選 1 到 4 項你的高中經歷，就能獲得對應的備審重點與系上資源推薦！`;
-        }
-        return;
-      }
-
-      if (badgeEl) badgeEl.textContent = `主力亮點：${topPillar}`;
-      const adviceMap = {
-        '公共治理': `你在議題思辨與制度觀察特別突出！建議備審主軸聚焦「公共問題剖析」，入學後很適合活用「情境教室」模擬決策與「五年一貫」深化政策研究。`,
-        'AI 應用': `你具備數位治理的先發優勢！在特殊選才可多展示「如何用 AI 與數據輔助解決公共問題」，這正是公事系極為看重的跨域實戰力。`,
-        '社會實踐': `你的場域行動力非常亮眼！建議整理服務學習或地方觀察的真實故事與改變成效，並多了解公事系的「暑期實務實習」與「校友網絡」。`,
-        '青年領導力': `你的團隊協作與溝通力十分突出！備審中可強調「你如何凝聚跨意見夥伴完成任務」，未來也能在「英語簡報競賽」與學生組織發光。`
-      };
-      if (adviceEl) {
-        adviceEl.textContent = adviceMap[topPillar] || ``;
-      }
-    }
-
-    function toggleTrait(traitId) {
-      const idx = appState.selectedTraits.indexOf(traitId);
-      if (idx === -1) {
-        appState.selectedTraits.push(traitId);
-      } else {
-        appState.selectedTraits.splice(idx, 1);
-      }
-      renderTraits();
-      updateComposerSummary();
-      if (!appState.customDraft) {
-        updateConsultDraft();
-      }
-      saveState();
-    }
-
-    function resetTraits(btn) {
-      if (appState.selectedTraits.length === 0) return;
-      if (btn && btn.dataset.armed !== `true`) {
-        btn.dataset.armed = `true`;
-        btn.textContent = `再次點擊確認重設`;
-        return;
-      }
-      if (btn) {
-        btn.dataset.armed = `false`;
-        btn.textContent = `重設勾選`;
-      }
-      appState.selectedTraits = [];
-      renderTraits();
-      updateComposerSummary();
-      if (!appState.customDraft) {
-        updateConsultDraft();
-      }
-      saveState();
-    }
-
-    function applyMatcherToLine() {
-      appState.customDraft = null;
-      updateConsultDraft();
-      const target = document.getElementById(`line-consult`);
-      if (target) {
-        target.scrollIntoView({ behavior: `smooth` });
-      }
-      showCopyStatus(`已將你的亮點分析帶入 LINE 諮詢草稿！`);
-      saveState();
-    }
-
-    function filterPrograms(cat, btnEl) {
-      appState.activeProgramCat = cat;
-      const buttons = document.querySelectorAll(`[data-prog-cat].tab-pill`);
-      buttons.forEach((b) => {
-        const match = b.getAttribute(`data-prog-cat`) === cat;
-        b.classList.toggle(`active`, match);
-        b.setAttribute(`aria-pressed`, match ? `true` : `false`);
-      });
-
-      const cards = document.querySelectorAll(`#program-grid .program-card`);
-      cards.forEach((card) => {
-        const c = card.getAttribute(`data-prog-cat`);
-        const show = cat === `all` || c === cat;
-        card.style.display = show ? `flex` : `none`;
-      });
-      saveState();
-    }
-
-    function renderCampuses() {
-      const listEl = document.getElementById(`campus-list`);
-      const detailEl = document.getElementById(`campus-detail-box`);
-      const mapLabelEl = document.getElementById(`map-active-label`);
-
-      const current = CAMPUSES_DATA.find((c) => c.id === appState.activeCampusId) || CAMPUSES_DATA[0];
-
-      if (mapLabelEl) mapLabelEl.textContent = current.name;
-
-      // Update SVG node emphasis
-      CAMPUSES_DATA.forEach((c) => {
-        const node = document.getElementById(`node-${c.id}`);
-        if (!node) return;
-        const circle = node.querySelector(`circle`);
-        if (circle) {
-          circle.setAttribute(`fill`, c.id === current.id ? `var(--secondary)` : `var(--primary)`);
-          circle.setAttribute(`r`, c.id === current.id ? `13` : `10`);
-        }
-      });
-
-      if (listEl) {
-        listEl.innerHTML = CAMPUSES_DATA.map((c) => {
-          const active = c.id === current.id;
-          return `
-            <button
-              type="button"
-              class="campus-btn-card"
-              aria-pressed="${active ? `true` : `false`}"
-              onclick="selectCampus('${c.id}')"
-            >
-              <div class="campus-btn-head">
-                <span>${c.name}（${c.enName}）</span>
-                <span class="chip">${c.region}</span>
-              </div>
-              <div class="campus-btn-sub">${c.addressZh}｜電話：${c.phone}</div>
-            </button>
-          `;
-        }).join(``);
-      }
-
-      if (detailEl) {
-        detailEl.innerHTML = `
-          <div style="display: flex; justify-content: space-between; align-items: center; gap: var(--space-sm); flex-wrap: wrap;">
-            <strong style="font-size: 1.15rem;">${current.name}｜${current.enName}</strong>
-            <button type="button" class="btn btn-tertiary" style="min-height: 38px; padding: var(--space-xs) var(--space-md);" onclick="copyCampusInfo('${current.id}')">複製校區聯絡資訊</button>
-          </div>
-          <div><strong>中文地址：</strong><span>${current.addressZh}</span></div>
-          <div><strong>英文地址：</strong><span>${current.addressEn}</span></div>
-          <div><strong>聯絡電話：</strong><span class="num-col">${current.phone}</span></div>
-          <p style="margin: 0; color: var(--on-surface); font-size: 0.95rem;">${current.note}</p>
-          <span id="campus-copy-msg" style="font-size: 0.875rem; font-weight: 700; color: var(--primary);" hidden></span>
-        `;
-      }
-    }
-
-    function selectCampus(campusId) {
-      appState.activeCampusId = campusId;
-      renderCampuses();
-      saveState();
-    }
-
-    function copyCampusInfo(campusId) {
-      const c = CAMPUSES_DATA.find((item) => item.id === campusId);
-      if (!c) return;
-      const text = `銘傳大學 ${c.name}（${c.enName}）\n地址：${c.addressZh}\nEnglish: ${c.addressEn}\n電話：${c.phone}`;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).catch(() => {});
-      }
-      const msgEl = document.getElementById(`campus-copy-msg`);
-      if (msgEl) {
-        msgEl.textContent = `已複製 ${c.name} 地址與電話！`;
-        msgEl.hidden = false;
-      }
-    }
-
-    function renderFaqCategoryTabs() {
-      const container = document.getElementById(`faq-cat-tabs`);
-      if (!container) return;
-      container.innerHTML = FAQ_CATEGORIES.map((cat) => {
-        const active = appState.faqCategory === cat.id;
-        return `
-          <button
-            type="button"
-            class="tab-pill ${active ? `active` : ``}"
-            aria-pressed="${active ? `true` : `false`}"
-            onclick="selectFaqCategory('${cat.id}')"
-          >
-            ${cat.label}
-          </button>
-        `;
-      }).join(``);
-    }
-
-    function bindSvgCampusKeys() {
-      CAMPUSES_DATA.forEach((c) => {
-        const node = document.getElementById(`node-${c.id}`);
-        if (!node || node.dataset.keyBound === `true`) return;
-        node.dataset.keyBound = `true`;
-        node.addEventListener(`keydown`, (e) => {
-          if (e.key === `Enter` || e.key === ` `) {
-            e.preventDefault();
-            selectCampus(c.id);
-          }
-        });
-      });
-    }
-
-    function getFilteredFaqs() {
-      const q = (appState.faqQuery || ``).trim().toLowerCase();
-      return FAQ_DATA.filter((item) => {
-        const catOk = appState.faqCategory === `all` || item.category === appState.faqCategory;
-        if (!catOk) return false;
-        if (!q) return true;
-        const hay = `${item.q} ${item.a} ${item.categoryLabel} ${item.tags.join(` `)}`.toLowerCase();
-        return hay.includes(q);
-      });
-    }
+    let activeFaqCategory = 'all';
+    let expandedFaqIds = new Set(['faq-1']);
 
     function renderFaqs() {
-      const listEl = document.getElementById(`faq-list`);
-      const countEl = document.getElementById(`faq-result-count`);
-      const bmEl = document.getElementById(`faq-bookmark-count`);
+      const listEl = document.getElementById('faq-list');
+      const countEl = document.getElementById('faq-count');
+      const searchInput = document.getElementById('faq-search');
+      const toggleAllBtn = document.getElementById('toggle-all-btn');
+      if (!listEl || !countEl || !searchInput) return;
 
-      const items = getFilteredFaqs();
+      const query = searchInput.value.trim().toLowerCase();
+      const filtered = faqItems.filter(function (item) {
+        const matchCat = activeFaqCategory === 'all' || item.category === activeFaqCategory;
+        if (!matchCat) return false;
+        if (!query) return true;
+        const haystack = (item.question + ' ' + item.answer + ' ' + item.keywords + ' ' + item.categoryLabel).toLowerCase();
+        return haystack.indexOf(query) !== -1;
+      });
 
-      if (countEl) {
-        countEl.textContent = `顯示 ${items.length} / ${FAQ_DATA.length} 筆常見問題`;
+      countEl.textContent = `顯示 ${filtered.length} / ${faqItems.length} 則問答`;
+
+      if (toggleAllBtn) {
+        const allOpen = filtered.length > 0 && filtered.every(function (item) { return expandedFaqIds.has(item.id); });
+        toggleAllBtn.textContent = allOpen ? '全部收合' : '全部展開';
       }
-      if (bmEl) {
-        bmEl.textContent = `已收藏 ${appState.bookmarkedFaqs.length} 題至 LINE 諮詢清單`;
-      }
 
-      if (!listEl) return;
-
-      if (items.length === 0) {
+      if (filtered.length === 0) {
         listEl.innerHTML = `
-          <div class="empty-state">
-            <strong>找不到符合「${escapeHtml(appState.faqQuery)}」的常見問題</strong>
-            <p style="margin: 0; color: var(--on-surface-variant);">
-              可能是關鍵字太精細或目前分類篩選範圍較小。建議清除篩選查看全部 12 題，或直接透過 LINE 一對一諮詢詢問！
-            </p>
-            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
-              <button type="button" class="btn btn-primary" onclick="clearFaqFilters()">顯示全部問題</button>
-              <a class="btn btn-secondary" href="#line-consult">前往 LINE 直接提問</a>
+          <div class="faq-empty">
+            <p style="margin: 0; font-weight: 700;">找不到符合「${escapeHtml(searchInput.value.trim())}」的相關問答</p>
+            <p style="margin: 0; color: var(--on-surface-variant);">建議嘗試其他關鍵字、重設篩選條件，或直接加入 LINE 群組由專人為你解答。</p>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center;">
+              <button type="button" class="btn btn-primary" onclick="clearFaqSearch()">顯示全部問答</button>
+              <a class="btn btn-secondary" href="#line-consult">前往 LINE 諮詢專區</a>
             </div>
           </div>
         `;
         return;
       }
 
-      listEl.innerHTML = items.map((item) => {
-        const isOpen = appState.expandedFaqs.includes(item.id);
-        const isSaved = appState.bookmarkedFaqs.includes(item.id);
+      listEl.innerHTML = filtered.map(function (item) {
+        const isOpen = expandedFaqIds.has(item.id);
         return `
           <article class="faq-item">
             <button
               type="button"
               class="faq-trigger"
-              aria-expanded="${isOpen ? `true` : `false`}"
+              aria-expanded="${isOpen ? 'true' : 'false'}"
               aria-controls="${item.id}-panel"
-              onclick="toggleFaqItem('${item.id}')"
+              onclick="toggleFaq('${item.id}')"
             >
-              <span class="faq-trigger-left">
-                <span style="display: inline-flex; align-items: center; gap: var(--space-xs); flex-wrap: wrap;">
-                  <span class="chip">${item.categoryLabel}</span>
-                  ${isSaved ? `<span class="stamp-kicker" style="margin: 0;">已加入諮詢清單</span>` : ``}
-                </span>
-                <span class="faq-q">${item.q}</span>
+              <span class="faq-q-wrap">
+                <span class="faq-cat-label">${escapeHtml(item.categoryLabel)}</span>
+                <span>${escapeHtml(item.question)}</span>
               </span>
-              <i data-lucide="${isOpen ? `chevron-up` : `chevron-down`}" aria-hidden="true"></i>
+              <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
             </button>
-            <div class="faq-answer" id="${item.id}-panel" ${isOpen ? `` : `hidden`}>
-              <p>${item.a}</p>
-              <div class="faq-answer-actions">
-                <button
-                  type="button"
-                  class="btn ${isSaved ? `btn-secondary` : `btn-tertiary`}"
-                  onclick="toggleBookmarkFaq('${item.id}')"
-                >
-                  <i data-lucide="${isSaved ? `bookmark-check` : `bookmark-plus`}" aria-hidden="true"></i>
-                  <span>${isSaved ? `移出 LINE 諮詢清單` : `加入我的 LINE 諮詢清單`}</span>
-                </button>
-              </div>
+            <div class="faq-answer" id="${item.id}-panel" ${isOpen ? '' : 'hidden'}>
+              <p>${escapeHtml(item.answer)}</p>
             </div>
           </article>
         `;
-      }).join(``);
-
-      if (window.lucide && typeof window.lucide.createIcons === `function`) {
-        window.lucide.createIcons();
-      }
+      }).join('');
     }
 
     function escapeHtml(str) {
       return String(str)
-        .replace(/&/g, `&amp;`)
-        .replace(/</g, `&lt;`)
-        .replace(/>/g, `&gt;`)
-        .replace(/"/g, `&quot;`)
-        .replace(/'/g, `&#39;`);
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
     }
 
-    function handleFaqSearch(val) {
-      appState.faqQuery = val;
-      if (val && val.trim().length > 0) {
-        // Automatically expand matching FAQs so search hits are immediately readable
-        appState.expandedFaqs = getFilteredFaqs().map((f) => f.id);
-      }
-      renderFaqs();
-      saveState();
-    }
-
-    function selectFaqCategory(catId) {
-      appState.faqCategory = catId;
-      renderFaqCategoryTabs();
-      renderFaqs();
-      saveState();
-    }
-
-    function clearFaqFilters() {
-      appState.faqQuery = ``;
-      appState.faqCategory = `all`;
-      const input = document.getElementById(`faq-search-input`);
-      if (input) input.value = ``;
-      renderFaqCategoryTabs();
-      renderFaqs();
-      saveState();
-    }
-
-    function toggleFaqItem(faqId) {
-      const idx = appState.expandedFaqs.indexOf(faqId);
-      if (idx === -1) {
-        appState.expandedFaqs.push(faqId);
+    function toggleFaq(id) {
+      if (expandedFaqIds.has(id)) {
+        expandedFaqIds.delete(id);
       } else {
-        appState.expandedFaqs.splice(idx, 1);
+        expandedFaqIds.add(id);
       }
       renderFaqs();
-      saveState();
     }
 
-    function toggleAllFaq(expand) {
-      if (expand) {
-        appState.expandedFaqs = FAQ_DATA.map((f) => f.id);
-      } else {
-        appState.expandedFaqs = [];
-      }
+    function toggleAllFaqs() {
+      const searchInput = document.getElementById('faq-search');
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+      const visible = faqItems.filter(function (item) {
+        const matchCat = activeFaqCategory === 'all' || item.category === activeFaqCategory;
+        if (!matchCat) return false;
+        if (!query) return true;
+        return (item.question + ' ' + item.answer + ' ' + item.keywords + ' ' + item.categoryLabel).toLowerCase().indexOf(query) !== -1;
+      });
+      const allOpen = visible.length > 0 && visible.every(function (item) { return expandedFaqIds.has(item.id); });
+      visible.forEach(function (item) {
+        if (allOpen) expandedFaqIds.delete(item.id);
+        else expandedFaqIds.add(item.id);
+      });
       renderFaqs();
-      saveState();
     }
 
-    function toggleBookmarkFaq(faqId) {
-      const idx = appState.bookmarkedFaqs.indexOf(faqId);
-      if (idx === -1) {
-        appState.bookmarkedFaqs.push(faqId);
-      } else {
-        appState.bookmarkedFaqs.splice(idx, 1);
-      }
-      renderFaqs();
-      updateComposerSummary();
-      if (!appState.customDraft) {
-        updateConsultDraft();
-      }
-      saveState();
-    }
-
-    function handleQrFallback(imgEl) {
-      if (imgEl) imgEl.style.display = `none`;
-      const fb = document.getElementById(`qr-fallback`);
-      if (fb) fb.style.display = `flex`;
-    }
-
-    function updateComposerSummary() {
-      const summaryEl = document.getElementById(`composer-saved-summary`);
-      if (!summaryEl) return;
-
-      const traitCount = appState.selectedTraits.length;
-      const bmCount = appState.bookmarkedFaqs.length;
-
-      if (traitCount === 0 && bmCount === 0) {
-        summaryEl.innerHTML = `<span class="faq-count">目前尚未帶入經歷盤點或收藏問題（可至上方勾選或直接編輯下方訊息）。</span>`;
-        return;
-      }
-
-      const parts = [];
-      if (traitCount > 0) parts.push(`<span class="chip">已勾選 ${traitCount} 項個人經歷</span>`);
-      if (bmCount > 0) parts.push(`<span class="chip">已收藏 ${bmCount} 題延伸問題</span>`);
-      summaryEl.innerHTML = parts.join(``);
-    }
-
-    function buildGeneratedDraft() {
-      const roleSelect = document.getElementById(`student-role-select`);
-      const topicSelect = document.getElementById(`consult-topic-select`);
-      const nameInput = document.getElementById(`student-name-input`);
-
-      const role = roleSelect ? roleSelect.value : appState.studentRole;
-      const topic = topicSelect ? topicSelect.value : appState.consultTopic;
-      const nameVal = nameInput ? nameInput.value.trim() : appState.studentName;
-
-      appState.studentRole = role;
-      appState.consultTopic = topic;
-      appState.studentName = nameVal;
-
-      const greetingName = nameVal ? `我是 ${nameVal}，` : ``;
-      const traitLabels = appState.selectedTraits
-        .map((id) => {
-          const t = TRAITS_DATA.find((x) => x.id === id);
-          return t ? t.label : ``;
-        })
-        .filter(Boolean);
-
-      const bookmarkQs = appState.bookmarkedFaqs
-        .map((id) => {
-          const f = FAQ_DATA.find((x) => x.id === id);
-          return f ? `• ${f.q}` : ``;
-        })
-        .filter(Boolean);
-
-      let lines = [
-        `老師／學長姐您好！${greetingName}目前是「${role}」。`,
-        `想透過特殊選才諮詢進一步了解銘傳大學公事系的「${topic}」。`
-      ];
-
-      if (traitLabels.length > 0) {
-        lines.push(`我高中階段累積的相關經歷包含：${traitLabels.join(`、`) }。`);
-      }
-
-      if (bookmarkQs.length > 0) {
-        lines.push(`另外有幾題希望能請教更細節的建議：\n${bookmarkQs.join(`\n`)}`);
-      }
-
-      lines.push(`請問方便請教您準備建議或預約一對一諮詢嗎？謝謝您！`);
-      return lines.join(`\n\n`);
-    }
-
-    function updateConsultDraft() {
-      const textarea = document.getElementById(`consult-draft-textarea`);
-      if (!textarea) return;
-      const generated = buildGeneratedDraft();
-      textarea.value = generated;
-      appState.customDraft = null;
-      saveState();
-    }
-
-    function regenerateConsultDraft() {
-      appState.customDraft = null;
-      updateConsultDraft();
-      showCopyStatus(`已依據目前選取項目重新產生草稿。`);
-    }
-
-    function handleManualDraftEdit(val) {
-      appState.customDraft = val;
-      saveState();
-    }
-
-    function copyConsultDraft() {
-      const textarea = document.getElementById(`consult-draft-textarea`);
-      const text = textarea ? textarea.value : ``;
-      if (!text.trim()) return;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).catch(() => {});
-      }
-      showCopyStatus(`已複製諮詢訊息！掃描左側 QR Code 加入 LINE 後即可貼上發送。`);
-    }
-
-    function showCopyStatus(msg) {
-      const banner = document.getElementById(`copy-status-banner`);
-      if (!banner) return;
-      banner.textContent = msg;
-      banner.hidden = false;
-    }
-
-    function clearSavedWorkspace(btn) {
-      if (btn && btn.dataset.armed !== `true`) {
-        btn.dataset.armed = `true`;
-        btn.textContent = `再次點擊確認清空`;
-        return;
-      }
-      if (btn) {
-        btn.dataset.armed = `false`;
-        btn.textContent = `清空個人暫存`;
-      }
-      appState.selectedTraits = [];
-      appState.bookmarkedFaqs = [];
-      appState.studentName = ``;
-      appState.customDraft = null;
-
-      const nameInput = document.getElementById(`student-name-input`);
-      if (nameInput) nameInput.value = ``;
-
-      renderTraits();
-      renderFaqs();
-      updateComposerSummary();
-      updateConsultDraft();
-      showCopyStatus(`已清空所有個人暫存與收藏項目。`);
-      saveState();
-    }
-
-    async function saveState() {
-      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
-        try {
-          await window.notebookAppApi.setAppState({
-            selectedTraits: appState.selectedTraits,
-            activeProgramCat: appState.activeProgramCat,
-            activeCampusId: appState.activeCampusId,
-            faqQuery: appState.faqQuery,
-            faqCategory: appState.faqCategory,
-            expandedFaqs: appState.expandedFaqs,
-            bookmarkedFaqs: appState.bookmarkedFaqs,
-            studentRole: appState.studentRole,
-            consultTopic: appState.consultTopic,
-            studentName: appState.studentName,
-            customDraft: appState.customDraft
-          });
-        } catch (err) {
-          // Ignore host persistence error silently
-        }
-      }
-    }
-
-    async function initApp() {
-      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
-        try {
-          const saved = await window.notebookAppApi.getAppState();
-          if (saved && typeof saved === `object`) {
-            if (Array.isArray(saved.selectedTraits)) appState.selectedTraits = saved.selectedTraits;
-            if (typeof saved.activeProgramCat === `string`) appState.activeProgramCat = saved.activeProgramCat;
-            if (typeof saved.activeCampusId === `string`) appState.activeCampusId = saved.activeCampusId;
-            if (typeof saved.faqQuery === `string`) appState.faqQuery = saved.faqQuery;
-            if (typeof saved.faqCategory === `string`) appState.faqCategory = saved.faqCategory;
-            if (Array.isArray(saved.expandedFaqs)) appState.expandedFaqs = saved.expandedFaqs;
-            if (Array.isArray(saved.bookmarkedFaqs)) appState.bookmarkedFaqs = saved.bookmarkedFaqs;
-            if (typeof saved.studentRole === `string`) appState.studentRole = saved.studentRole;
-            if (typeof saved.consultTopic === `string`) appState.consultTopic = saved.consultTopic;
-            if (typeof saved.studentName === `string`) appState.studentName = saved.studentName;
-            if (typeof saved.customDraft === `string` || saved.customDraft === null) appState.customDraft = saved.customDraft;
+    function filterFaqs() {
+      const searchInput = document.getElementById('faq-search');
+      if (searchInput && searchInput.value.trim().length > 0) {
+        // Automatically expand matching results when searching so answers are immediately readable
+        const q = searchInput.value.trim().toLowerCase();
+        faqItems.forEach(function (item) {
+          if ((item.question + ' ' + item.answer + ' ' + item.keywords).toLowerCase().indexOf(q) !== -1) {
+            expandedFaqIds.add(item.id);
           }
-        } catch (err) {
-          // Fallback to default state
+        });
+      }
+      renderFaqs();
+    }
+
+    function quickSearch(keyword) {
+      const searchInput = document.getElementById('faq-search');
+      if (!searchInput) return;
+      searchInput.value = keyword;
+      activeFaqCategory = 'all';
+      document.querySelectorAll('[aria-label="問答分類篩選"] .pill-tab').forEach(function (btn, idx) {
+        btn.setAttribute('aria-pressed', idx === 0 ? 'true' : 'false');
+      });
+      filterFaqs();
+    }
+
+    function setFaqCategory(cat, btnEl) {
+      activeFaqCategory = cat;
+      const group = btnEl ? btnEl.parentElement : null;
+      if (group) {
+        group.querySelectorAll('.pill-tab').forEach(function (btn) {
+          btn.setAttribute('aria-pressed', 'false');
+        });
+      }
+      if (btnEl) btnEl.setAttribute('aria-pressed', 'true');
+      renderFaqs();
+    }
+
+    function clearFaqSearch() {
+      const searchInput = document.getElementById('faq-search');
+      if (searchInput) searchInput.value = '';
+      activeFaqCategory = 'all';
+      document.querySelectorAll('[aria-label="問答分類篩選"] .pill-tab').forEach(function (btn, idx) {
+        btn.setAttribute('aria-pressed', idx === 0 ? 'true' : 'false');
+      });
+      expandedFaqIds = new Set(['faq-1']);
+      renderFaqs();
+    }
+
+    // =========================================================================
+    // 4. LINE Consultation Copy & Question Draft Helper
+    // =========================================================================
+    const LINE_GROUP_URL = `https://line.me/R/ti/g/nzWC2Nn4As`;
+
+    function copyTextFallback(text, onDone) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          onDone(true);
+        }).catch(function () {
+          legacyCopy(text, onDone);
+        });
+      } else {
+        legacyCopy(text, onDone);
+      }
+    }
+
+    function legacyCopy(text, onDone) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      let ok = false;
+      try {
+        ok = document.execCommand('copy');
+      } catch (e) {
+        ok = false;
+      }
+      document.body.removeChild(ta);
+      onDone(ok);
+    }
+
+    function copyLineUrl() {
+      const feedback = document.getElementById('line-copy-feedback');
+      copyTextFallback(LINE_GROUP_URL, function (ok) {
+        if (!feedback) return;
+        feedback.textContent = ok
+          ? `已複製連結（${LINE_GROUP_URL}），請貼上瀏覽器或 LINE 開啟加入群組！`
+          : `請直接全選上方網址複製，或以手機掃描右側 QR Code 加入。`;
+      });
+    }
+
+    const draftTemplates = {
+      portfolio: `老師好，我是對銘傳公事系特殊選才很有興趣的高中生！我想請教如果我的高中經歷以＿＿＿（例如社團幹部／志工服務／小論文）為主，備審資料要如何凸顯「公共治理」與「社會實踐」特質呢？`,
+      fiveyear: `老師好，我想進一步了解公事系的「五年一貫學碩士專案」和「暑期實務實習（含自行申請實習機構）」，通常大學幾年級可以開始申請規劃呢？`,
+      ai: `老師好，我是社會組／跨領域背景的高中生，對公事系把「AI 應用」結合公共事務以及「情境教室」課程很有興趣，想請教大一入學後有哪些相關課程可以修讀？`
+    };
+
+    function fillDraft(key) {
+      const textarea = document.getElementById('question-draft');
+      const feedback = document.getElementById('draft-copy-feedback');
+      if (textarea && draftTemplates[key]) {
+        textarea.value = draftTemplates[key];
+      }
+      if (feedback) feedback.textContent = '';
+    }
+
+    function copyQuestionDraft() {
+      const textarea = document.getElementById('question-draft');
+      const feedback = document.getElementById('draft-copy-feedback');
+      if (!textarea || !feedback) return;
+      const text = textarea.value.trim();
+      if (!text) {
+        feedback.textContent = `請先輸入問題內容，或點選上方快速套用模板。`;
+        return;
+      }
+      copyTextFallback(text, function (ok) {
+        feedback.textContent = ok ? `已複製提問草稿，加入 LINE 群組後即可直接貼上發問！` : `請手動全選文字複製。`;
+      });
+    }
+
+    // =========================================================================
+    // 5. Pure JS ISO/IEC 18004 QR Code Generator (Version 3-M, 29x29)
+    //    Encodes https://line.me/R/ti/g/nzWC2Nn4As into a scannable SVG
+    // =========================================================================
+    function generateQrVersion3M(text) {
+      const SIZE = 29;
+      const DATA_CW = 44;
+      const EC_CW = 26;
+
+      // 1. Encode UTF-8/ASCII bytes
+      const bytes = [];
+      for (let i = 0; i < text.length; i++) {
+        bytes.push(text.charCodeAt(i) & 0xff);
+      }
+
+      // Build bit stream: Mode 0100 (4 bits) + Count (8 bits) + Bytes + Terminator + Pad
+      const bits = [];
+      function pushBits(val, len) {
+        for (let i = len - 1; i >= 0; i--) {
+          bits.push((val >> i) & 1);
         }
       }
+      pushBits(4, 4); // Byte mode
+      pushBits(bytes.length, 8);
+      for (let i = 0; i < bytes.length; i++) {
+        pushBits(bytes[i], 8);
+      }
+      const maxDataBits = DATA_CW * 8;
+      const termLen = Math.min(4, maxDataBits - bits.length);
+      pushBits(0, termLen);
+      while (bits.length % 8 !== 0) bits.push(0);
 
-      // Restore inputs
-      const faqInput = document.getElementById(`faq-search-input`);
-      if (faqInput) faqInput.value = appState.faqQuery;
-
-      const roleSelect = document.getElementById(`student-role-select`);
-      if (roleSelect) roleSelect.value = appState.studentRole;
-
-      const topicSelect = document.getElementById(`consult-topic-select`);
-      if (topicSelect) topicSelect.value = appState.consultTopic;
-
-      const nameInput = document.getElementById(`student-name-input`);
-      if (nameInput) nameInput.value = appState.studentName;
-
-      // Render components
-      renderTraits();
-      const progBtn = document.querySelector(`[data-prog-cat="${appState.activeProgramCat}"].tab-pill`);
-      filterPrograms(appState.activeProgramCat, progBtn);
-      bindSvgCampusKeys();
-      renderCampuses();
-      renderFaqCategoryTabs();
-      renderFaqs();
-      updateComposerSummary();
-
-      const textarea = document.getElementById(`consult-draft-textarea`);
-      if (textarea) {
-        textarea.value = appState.customDraft ? appState.customDraft : buildGeneratedDraft();
+      const dataCodewords = [];
+      for (let i = 0; i < bits.length; i += 8) {
+        let b = 0;
+        for (let j = 0; j < 8; j++) b = (b << 1) | bits[i + j];
+        dataCodewords.push(b);
+      }
+      const padBytes = [0xec, 0x11];
+      let padIdx = 0;
+      while (dataCodewords.length < DATA_CW) {
+        dataCodewords.push(padBytes[padIdx % 2]);
+        padIdx++;
       }
 
-      if (window.lucide && typeof window.lucide.createIcons === `function`) {
+      // 2. GF(256) & Reed-Solomon Error Correction (EC_CW = 26)
+      const gfExp = new Array(512);
+      const gfLog = new Array(256).fill(0);
+      let x = 1;
+      for (let i = 0; i < 255; i++) {
+        gfExp[i] = x;
+        gfLog[x] = i;
+        x <<= 1;
+        if (x & 0x100) x ^= 0x11d;
+      }
+      for (let i = 255; i < 512; i++) gfExp[i] = gfExp[i - 255];
+
+      function gfMul(a, b) {
+        if (a === 0 || b === 0) return 0;
+        return gfExp[gfLog[a] + gfLog[b]];
+      }
+
+      // Generator polynomial of degree 26
+      let gen = [1];
+      for (let i = 0; i < EC_CW; i++) {
+        const next = new Array(gen.length + 1).fill(0);
+        const factor = gfExp[i];
+        for (let j = 0; j < gen.length; j++) {
+          next[j] ^= gen[j];
+          next[j + 1] ^= gfMul(gen[j], factor);
+        }
+        gen = next;
+      }
+
+      const msg = dataCodewords.concat(new Array(EC_CW).fill(0));
+      for (let i = 0; i < DATA_CW; i++) {
+        const coef = msg[i];
+        if (coef !== 0) {
+          for (let j = 0; j < gen.length; j++) {
+            msg[i + j] ^= gfMul(gen[j], coef);
+          }
+        }
+      }
+      const ecCodewords = msg.slice(DATA_CW);
+      const allCodewords = dataCodewords.concat(ecCodewords);
+      const streamBits = [];
+      for (let i = 0; i < allCodewords.length; i++) {
+        for (let b = 7; b >= 0; b--) {
+          streamBits.push((allCodewords[i] >> b) & 1);
+        }
+      }
+      // 7 remainder bits for Version 3
+      for (let i = 0; i < 7; i++) streamBits.push(0);
+
+      // 3. Matrix Construction
+      function createBaseMatrix() {
+        const m = Array.from({ length: SIZE }, function () { return new Array(SIZE).fill(false); });
+        const f = Array.from({ length: SIZE }, function () { return new Array(SIZE).fill(false); });
+
+        function setFunc(r, c, val) {
+          if (r < 0 || r >= SIZE || c < 0 || c >= SIZE) return;
+          m[r][c] = val;
+          f[r][c] = true;
+        }
+
+        function drawFinder(r0, c0) {
+          for (let dr = -1; dr <= 7; dr++) {
+            for (let dc = -1; dc <= 7; dc++) {
+              const r = r0 + dr;
+              const c = c0 + dc;
+              if (r < 0 || r >= SIZE || c < 0 || c >= SIZE) continue;
+              const inOuter = dr >= 0 && dr <= 6 && dc >= 0 && dc <= 6;
+              const isDark = inOuter && (
+                dr === 0 || dr === 6 || dc === 0 || dc === 6 ||
+                (dr >= 2 && dr <= 4 && dc >= 2 && dc <= 4)
+              );
+              setFunc(r, c, isDark);
+            }
+          }
+        }
+
+        drawFinder(0, 0);
+        drawFinder(0, SIZE - 7);
+        drawFinder(SIZE - 7, 0);
+
+        // Alignment pattern at (22, 22) for Version 3
+        for (let dr = -2; dr <= 2; dr++) {
+          for (let dc = -2; dc <= 2; dc++) {
+            const isDark = Math.abs(dr) === 2 || Math.abs(dc) === 2 || (dr === 0 && dc === 0);
+            setFunc(22 + dr, 22 + dc, isDark);
+          }
+        }
+
+        // Timing patterns
+        for (let i = 8; i < SIZE - 8; i++) {
+          const isDark = i % 2 === 0;
+          if (!f[6][i]) setFunc(6, i, isDark);
+          if (!f[i][6]) setFunc(i, 6, isDark);
+        }
+
+        // Dark module at (4*3 + 9, 8) = (21, 8)
+        setFunc(21, 8, true);
+
+        // Reserve format info cells
+        for (let i = 0; i <= 8; i++) {
+          if (!f[8][i]) setFunc(8, i, false);
+          if (!f[i][8]) setFunc(i, 8, false);
+        }
+        for (let i = SIZE - 8; i < SIZE; i++) {
+          if (!f[8][i]) setFunc(8, i, false);
+        }
+        for (let i = SIZE - 7; i < SIZE; i++) {
+          if (!f[i][8]) setFunc(i, 8, false);
+        }
+
+        // Place data + EC bits in zig-zag
+        let bitIdx = 0;
+        let upward = true;
+        for (let rightCol = SIZE - 1; rightCol >= 1; rightCol -= 2) {
+          if (rightCol === 6) rightCol = 5;
+          for (let step = 0; step < SIZE; step++) {
+            const r = upward ? (SIZE - 1 - step) : step;
+            for (let offset = 0; offset < 2; offset++) {
+              const c = rightCol - offset;
+              if (!f[r][c]) {
+                m[r][c] = bitIdx < streamBits.length ? streamBits[bitIdx] === 1 : false;
+                bitIdx++;
+              }
+            }
+          }
+          upward = !upward;
+        }
+
+        return { m: m, f: f };
+      }
+
+      function computeFormatBits(maskId) {
+        // ECC Level M = 00
+        const data = (0 << 3) | maskId;
+        let rem = data << 10;
+        const poly = 0x537;
+        for (let i = 14; i >= 10; i--) {
+          if ((rem >> i) & 1) rem ^= poly << (i - 10);
+        }
+        return ((data << 10) | rem) ^ 0x5412;
+      }
+
+      function applyMaskAndFormat(base, maskId) {
+        const m = base.m.map(function (row) { return row.slice(); });
+        const f = base.f;
+
+        for (let r = 0; r < SIZE; r++) {
+          for (let c = 0; c < SIZE; c++) {
+            if (f[r][c]) continue;
+            let invert = false;
+            if (maskId === 0) invert = (r + c) % 2 === 0;
+            else if (maskId === 1) invert = r % 2 === 0;
+            else if (maskId === 2) invert = c % 3 === 0;
+            else if (maskId === 3) invert = (r + c) % 3 === 0;
+            else if (maskId === 4) invert = (Math.floor(r / 2) + Math.floor(c / 3)) % 2 === 0;
+            else if (maskId === 5) invert = ((r * c) % 2 + (r * c) % 3) === 0;
+            else if (maskId === 6) invert = (((r * c) % 2 + (r * c) % 3) % 2) === 0;
+            else if (maskId === 7) invert = (((r + c) % 2 + (r * c) % 3) % 2) === 0;
+            if (invert) m[r][c] = !m[r][c];
+          }
+        }
+
+        const fmt = computeFormatBits(maskId);
+        // Copy 1 (top-left)
+        const tlCoords = [
+          [8, 0], [8, 1], [8, 2], [8, 3], [8, 4], [8, 5], [8, 7], [8, 8],
+          [7, 8], [5, 8], [4, 8], [3, 8], [2, 8], [1, 8], [0, 8]
+        ];
+        // Copy 2 (bottom-left + top-right)
+        const brCoords = [
+          [28, 8], [27, 8], [26, 8], [25, 8], [24, 8], [23, 8], [22, 8],
+          [8, 21], [8, 22], [8, 23], [8, 24], [8, 25], [8, 26], [8, 27], [8, 28]
+        ];
+        for (let i = 0; i < 15; i++) {
+          const bit = ((fmt >> (14 - i)) & 1) === 1;
+          m[tlCoords[i][0]][tlCoords[i][1]] = bit;
+          m[brCoords[i][0]][brCoords[i][1]] = bit;
+        }
+        return m;
+      }
+
+      function calcPenalty(m) {
+        let penalty = 0;
+        // Rule 1: adjacent same-color modules in row/col
+        for (let r = 0; r < SIZE; r++) {
+          let run = 1;
+          for (let c = 1; c < SIZE; c++) {
+            if (m[r][c] === m[r][c - 1]) {
+              run++;
+              if (run === 5) penalty += 3;
+              else if (run > 5) penalty += 1;
+            } else {
+              run = 1;
+            }
+          }
+        }
+        for (let c = 0; c < SIZE; c++) {
+          let run = 1;
+          for (let r = 1; r < SIZE; r++) {
+            if (m[r][c] === m[r - 1][c]) {
+              run++;
+              if (run === 5) penalty += 3;
+              else if (run > 5) penalty += 1;
+            } else {
+              run = 1;
+            }
+          }
+        }
+        // Rule 2: 2x2 blocks
+        for (let r = 0; r < SIZE - 1; r++) {
+          for (let c = 0; c < SIZE - 1; c++) {
+            const v = m[r][c];
+            if (v === m[r][c + 1] && v === m[r + 1][c] && v === m[r + 1][c + 1]) {
+              penalty += 3;
+            }
+          }
+        }
+        // Rule 3: 1:1:3:1:1 finder-like patterns
+        const p1 = [true, false, true, true, true, false, true, false, false, false, false];
+        const p2 = [false, false, false, false, true, false, true, true, true, false, true];
+        for (let r = 0; r < SIZE; r++) {
+          for (let c = 0; c <= SIZE - 11; c++) {
+            let match1 = true;
+            let match2 = true;
+            for (let k = 0; k < 11; k++) {
+              if (m[r][c + k] !== p1[k]) match1 = false;
+              if (m[r][c + k] !== p2[k]) match2 = false;
+            }
+            if (match1 || match2) penalty += 40;
+          }
+        }
+        for (let c = 0; c < SIZE; c++) {
+          for (let r = 0; r <= SIZE - 11; r++) {
+            let match1 = true;
+            let match2 = true;
+            for (let k = 0; k < 11; k++) {
+              if (m[r + k][c] !== p1[k]) match1 = false;
+              if (m[r + k][c] !== p2[k]) match2 = false;
+            }
+            if (match1 || match2) penalty += 40;
+          }
+        }
+        // Rule 4: dark ratio
+        let darkCount = 0;
+        for (let r = 0; r < SIZE; r++) {
+          for (let c = 0; c < SIZE; c++) {
+            if (m[r][c]) darkCount++;
+          }
+        }
+        const pct = (darkCount * 100) / (SIZE * SIZE);
+        const prev5 = Math.floor(pct / 5) * 5;
+        const next5 = prev5 + 5;
+        penalty += Math.min(Math.abs(prev5 - 50) / 5, Math.abs(next5 - 50) / 5) * 10;
+        return penalty;
+      }
+
+      const base = createBaseMatrix();
+      let bestMatrix = null;
+      let bestScore = Infinity;
+      for (let maskId = 0; maskId < 8; maskId++) {
+        const candidate = applyMaskAndFormat(base, maskId);
+        const score = calcPenalty(candidate);
+        if (score < bestScore) {
+          bestScore = score;
+          bestMatrix = candidate;
+        }
+      }
+      return bestMatrix;
+    }
+
+    function renderQrSvg() {
+      const container = document.getElementById('qr-container');
+      if (!container) return;
+      const matrix = generateQrVersion3M(LINE_GROUP_URL);
+      const size = matrix.length;
+      const quiet = 4;
+      const total = size + quiet * 2;
+      let rects = `<rect width="${total}" height="${total}" fill="var(--surface-container-low)"></rect>`;
+      for (let r = 0; r < size; r++) {
+        for (let c = 0; c < size; c++) {
+          if (matrix[r][c]) {
+            rects += `<rect x="${c + quiet}" y="${r + quiet}" width="1" height="1" fill="var(--on-surface)"></rect>`;
+          }
+        }
+      }
+      container.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${total} ${total}" role="img" aria-label="LINE 諮詢群組 QR Code，掃描後開啟 https://line.me/R/ti/g/nzWC2Nn4As">${rects}</svg>`;
+    }
+
+    // =========================================================================
+    // 6. Scroll Reveal & Initialization
+    // =========================================================================
+    document.addEventListener('DOMContentLoaded', function () {
+      renderFaqs();
+      renderQrSvg();
+
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
         window.lucide.createIcons();
       }
 
-      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
-        window.notebookAppApi.notifyAppReady();
+      const revealEls = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        revealEls.forEach(function (el) { obs.observe(el); });
+      } else {
+        revealEls.forEach(function (el) { el.classList.add('is-visible'); });
       }
-    }
-
-    initApp();
+    });
   </script>
 </body>
 </html>
